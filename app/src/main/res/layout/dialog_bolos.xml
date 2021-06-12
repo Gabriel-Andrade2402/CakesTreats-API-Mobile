@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="470dp"
+    android:background="#DDEDEBEB"
+    android:maxHeight="500dp"
+    android:minHeight="500dp"
+    android:padding="0dp"
+    tools:context=".ManipularDialogos">
+
+    <ImageView
+        android:id="@+id/imagemDialogBolo1"
+        android:layout_width="match_parent"
+        android:layout_height="306dp"
+        android:src="@drawable/balcao_bolo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/botaoVoltar"
+        android:layout_width="58dp"
+        android:layout_height="53dp"
+        android:onClick="clickFechar"
+        android:src="@drawable/sinal_voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tituloDialogBolo1"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:background="@color/white"
+        android:text="Bolos Tipo 1"
+        android:textAlignment="textStart"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black"
+        android:textSize="9pt"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tituloDialogIndicativoBolo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoVoltar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/precoDialogBolo1"
+        android:layout_width="103dp"
+        android:layout_height="24dp"
+        android:text="R$ 50,00/Kg"
+        android:textAlignment="center"
+        android:textColor="#32CD32"
+        app:layout_constraintBottom_toTopOf="@+id/tituloDialogIndicativoBolo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tituloDialogBolo1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tituloDialogIndicativoBolo1"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:background="#D3D3D3"
+        android:paddingTop="6dp"
+        android:text="kg e sabor"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:paddingLeft="15dp"
+        android:textSize="7pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagemDialogBolo1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/kilos"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:editable="true"
+        android:paddingTop="6dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="6pt"
+        app:layout_constraintBottom_toTopOf="@+id/botaoAdicionarAoCarrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/precoDialogBolo1"
+        app:layout_constraintVertical_bias="0.074" />
+
+    <ImageView
+        android:id="@+id/sinalSoma"
+        android:layout_width="46dp"
+        android:layout_height="45dp"
+        android:src="@drawable/sinal_soma"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/kilos"
+        app:layout_constraintTop_toBottomOf="@+id/precoDialogBolo1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/sinalSubtracao"
+        android:layout_width="46dp"
+        android:layout_height="45dp"
+        android:src="@drawable/sinal_subtracao"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toStartOf="@+id/kilos"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sinalSoma"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/botaoAdicionarAoCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:text="Adicionar ao carrinho R$50,00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloDialogIndicativoBolo1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        app:layout_constraintBottom_toTopOf="@+id/botaoAdicionarAoCarrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloDialogIndicativoBolo1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_background"
+                android:fontFamily="@font/aldrich"
+                android:paddingTop="7dp"
+                android:text="TextView" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

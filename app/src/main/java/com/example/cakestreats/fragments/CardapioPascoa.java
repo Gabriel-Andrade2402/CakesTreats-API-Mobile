@@ -61,7 +61,7 @@ public class CardapioPascoa extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        layoutView=inflater.inflate(R.layout.fragment_cardapio_doces, container, false);
+        layoutView=inflater.inflate(R.layout.fragment_cardapio_pascoa, container, false);
         return layoutView;
     }
 }

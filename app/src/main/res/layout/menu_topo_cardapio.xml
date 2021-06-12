@@ -18,8 +18,9 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_width="351dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -47,10 +48,10 @@
                 android:id="@+id/button_doces"
                 android:layout_width="20dp"
                 android:layout_height="40dp"
-                android:padding="0dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:onClick="clickDoces"
+                android:padding="0dp"
                 android:text="Doces"
                 app:icon="@drawable/icone_doces"
                 app:iconGravity="start"
@@ -60,10 +61,10 @@
                 android:id="@+id/button_pascoa"
                 android:layout_width="20dp"
                 android:layout_height="40dp"
-                android:padding="0dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:onClick="clickPascoa"
+                android:padding="0dp"
                 android:text="Pascoa"
                 app:icon="@drawable/icone_pascoa"
                 app:iconGravity="start"
@@ -72,9 +73,10 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/botaoMenu"
         android:layout_width="58dp"
         android:layout_height="48dp"
+        android:onClick="clickMenu"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
@@ -84,7 +86,20 @@
         app:srcCompat="@drawable/menu" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/backgroundPretoMenu"
+        android:layout_width="58dp"
+        android:layout_height="48dp"
+        android:alpha="0"
+        app:srcCompat="@drawable/fundopreto"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857"/>
+
+    <ImageView
+        android:id="@+id/logomarca"
         android:layout_width="191dp"
         android:layout_height="44dp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
@@ -94,5 +109,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.545"
         app:srcCompat="@drawable/texto_logomarca" />
+
+    <Spinner
+        android:id="@+id/linhaMenuSelecionado"
+        android:layout_width="90dp"
+        android:layout_height="5dp"
+        android:layout_margin="0dp"
+        android:background="#F13939"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
