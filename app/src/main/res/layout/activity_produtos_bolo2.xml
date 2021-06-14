@@ -58,13 +58,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tituloBoloProdutos" />
 
     <TextView
-        android:id="@+id/tituloQuantidadeProdutos"
+        android:id="@+id/TamanhoBolo"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="4dp"
         android:background="#A9A9A9"
         android:paddingLeft="18dp"
-        android:text="Kg"
+        android:text="Selecione o tamanho do bolo"
         android:textColor="@color/black"
         android:textSize="8pt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,44 +72,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/precoProdutos" />
 
-    <TextView
-        android:id="@+id/kilosProdutoBolo1"
-        android:layout_width="42dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="4dp"
-        android:editable="true"
-        android:padding="6dp"
-        android:text="1"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="12pt"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos" />
-
     <ImageView
-        android:id="@+id/botaoSomaProdutos"
+        android:id="@+id/botaoTamanhoG"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
+        android:onClick="escolherTamanho"
+        android:tag="R$25,00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/kilosProdutoBolo1"
-        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"
-        app:srcCompat="@drawable/sinal_soma" />
+        app:layout_constraintStart_toEndOf="@+id/botaoTamanhoM"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/sinal_tamaho_g" />
 
     <ImageView
-        android:id="@+id/botaoSubtracaoProdutos"
+        android:id="@+id/botaoTamanhoP"
         android:layout_width="55dp"
         android:layout_height="47dp"
+        android:onClick="escolherTamanho"
+        android:tag="R$15,00"
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/kilosProdutoBolo1"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"
-        app:srcCompat="@drawable/sinal_subtracao" />
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/sinal_tamaho_p" />
+    <ImageView
+        android:id="@+id/botaoTamanhoM"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:tag="R$16,00"
+        android:layout_marginTop="4dp"
+        android:onClick="escolherTamanho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/sinal_tamanho_m" />
 
     <TextView
         android:id="@+id/tituloSaboresProdutos"
@@ -124,7 +120,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kilosProdutoBolo1" />
+        app:layout_constraintTop_toBottomOf="@+id/botaoTamanhoM" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -150,7 +146,7 @@
         android:layout_height="59dp"
         android:layout_margin="10dp"
         android:layout_marginTop="28dp"
-        android:text="Adicionar ao Carrinho R$Total"
+        android:text="Adicionar ao Carrinho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,30 +161,37 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fundo_preto_circulo"/>
+        app:srcCompat="@drawable/fundo_preto_circulo" />
 
     <ImageView
-        android:id="@+id/imagemPretaBolo1Adionar"
-        android:layout_width="55dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/fundo_preto_circulo"
-        android:alpha="0"
-        android:onClick="AdicionarKilos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/kilosProdutoBolo1"
-        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"/>
-    <ImageView
-        android:id="@+id/imagemPretaBolo1Subtrair"
+        android:id="@+id/imagemPretaTamanhoP"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
         android:alpha="0"
-        android:onClick="SubtrairKilos"
-        android:src="@drawable/fundo_preto_circulo"
-        app:layout_constraintEnd_toStartOf="@+id/kilosProdutoBolo1"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"/>
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
+    <ImageView
+        android:id="@+id/imagemPretaTamanhoM"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
+    <ImageView
+        android:id="@+id/imagemPretaTamanhoG"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/botaoTamanhoM"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/fundo_preto_circulo"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

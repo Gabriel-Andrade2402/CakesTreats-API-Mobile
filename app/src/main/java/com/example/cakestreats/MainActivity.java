@@ -40,12 +40,6 @@ public class MainActivity extends AppCompatActivity {
         manipularDialogos= new ManipularDialogos(getSupportFragmentManager(),getResources(),getLayoutInflater(),getApplicationContext());
         menu=new Menu(getSupportFragmentManager(),findViewById(R.id.linhaMenuSelecionado));
         clickBolos(null);
-        Logger.getLogger(MainActivity.class.getName()).log(Level.WARNING,"criou");
-        bundle=savedInstanceState;
-        if(savedInstanceState!=null){
-            Logger.getLogger(MainActivity.class.getName()).log(Level.WARNING,"Entrou recuperae");
-            recuperarEstado(bundle.getString("fragmentAtivo"));
-        }
     }
     @Override
     public void onSaveInstanceState(Bundle outState){

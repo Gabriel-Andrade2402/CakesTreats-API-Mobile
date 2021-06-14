@@ -366,10 +366,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:textColor="@color/black"
-                android:textSize="10pt"
+                android:textSize="6pt"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:text="Entre em contato para mais informações" />
+                android:text="Entre em contato para personalizados" />
 
             <Space
                 android:layout_width="match_parent"

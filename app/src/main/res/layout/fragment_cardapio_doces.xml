@@ -1,8 +1,523 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/frameLayoutDoces"
     tools:context=".fragments.CardapioDoces">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#CD853F" />
+            <!-- Aqui começa o Layout do Bolos de pote-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiDocesBolosDePote"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesBolosDePote"
+                    android:layout_width="210dp"
+                    android:layout_height="213dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/bolo_no_pote"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesBolosDePote"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesBolosDePote"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesBolosDePote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="145ml R$ 5,00   210ml R$ 7,00"
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesBolosDePote"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesBolosDePote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Bolos No Pote"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- Aqui começa o Layout do Bombons de pote-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiDocesBombonsNoPote"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesBombonsNoPote"
+                    android:layout_width="210dp"
+                    android:layout_height="213dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/bombons_no_pote"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesBombonsNoPote"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesBombonsNoPote"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesBombonsNoPote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="145ml R$ 5,00   210ml R$ 7,00"
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesBombonsNoPote"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesBombonsNoPote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Bombons No Pote"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- Aqui começa o Layout do Copo da felicidade-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiDocesCopoDaFelicidade"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesCopoDaFelicidade"
+                    android:layout_width="187dp"
+                    android:layout_height="185dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/copo_da_felicidade"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesCopoDaFelicidade"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesCopoDaFelicidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesCopoDaFelicidade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="400ml R$ 18,00   590ml R$ 25,00"
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesCopoDaFelicidade"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesCopoDaFelicidade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Copo Da Felicidade"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Aqui começa o Layout do Pão de mel-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiDocesPaoDeMel"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesPaoDeMel"
+                    android:layout_width="187dp"
+                    android:layout_height="185dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/pao_de_mel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesPaoDeMel"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesPaoDeMel"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesPaoDeMel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="R$ 5,00"
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesPaoDeMel"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesPaoDeMel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Pão De Mel"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Aqui começa o Layout do Brigadeiro Gourmet-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiDocesBrigadeiroGourmet"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesBrigadeiroGourmet"
+                    android:layout_width="187dp"
+                    android:layout_height="185dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/brigadeiro_gourmet"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesBrigadeiroGourmet"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesBrigadeiroGourmet"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesBrigadeiroGourmet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="caixa 4u R$ 10,00 / caixa 6u R$ 15,00 / caixa 9u R$ 20,00 / caixa 12u R$ 25,00"
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesBrigadeiroGourmet"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesBrigadeiroGourmet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Brigadeiro Gourmet"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Aqui começa o Layout do Taças-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiDocesTacas"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesTacas"
+                    android:layout_width="187dp"
+                    android:layout_height="185dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/tacas"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesTacas"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesTacas"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesTacas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="R$ 85,00 / R$ 95,00 "
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesTacas"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesTacas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Taças"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Aqui começa o Layout do Barra recheada-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPaiBarraRecheada"
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rectangle_background">
+
+                <ImageView
+                    android:id="@+id/imagemDocesBarraRecheada"
+                    android:layout_width="187dp"
+                    android:layout_height="185dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/barra_chocolate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/LayoutBackgroundDocesBarraRecheada"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/LayoutBackgroundDocesBarraRecheada"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/rectangle_background_doces"
+                    android:elevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/precoDocesBarraRecheada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="P R$ 15,00 / G R$ 25,00 "
+                        android:textColor="@color/black"
+                        android:textSize="5pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.933"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDocesBarraRecheada"
+                        app:layout_constraintVertical_bias="0.705" />
+
+                    <TextView
+                        android:id="@+id/tituloDocesBarraRecheada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/changa_medium"
+                        android:padding="9dp"
+                        android:text="Barra recheada"
+                        android:textColor="@color/white"
+                        android:textSize="13pt"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.901" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:textSize="6pt"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="Entre em contato para personalizados" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>

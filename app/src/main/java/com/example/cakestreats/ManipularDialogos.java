@@ -67,7 +67,7 @@ public class ManipularDialogos {
             case "Bolos tipo 2":
                 return new Produtos(R.layout.activity_produtos,"bolos2");
             case "Bolos tipo 3":
-                return new Produtos(R.layout.activity_produtos,"bolos3");
+                return new Produtos(R.layout.activity_produtos_bolo2,"bolos3");
             case "Bolos tipo 4":
                 return new Produtos(R.layout.activity_produtos,"bolos4");
         }
