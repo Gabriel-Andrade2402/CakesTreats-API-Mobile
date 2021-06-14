@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialogos.Produtos">
+
+
+    <ImageView
+        android:id="@+id/imagemBoloProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="299dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/balcao_bolo1" />
+
+    <ImageView
+        android:id="@+id/botaoVoltarProdutos"
+        android:layout_width="78dp"
+        android:layout_height="69dp"
+        android:onClick="voltarCardapio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sinal_voltar" />
+
+    <TextView
+        android:id="@+id/tituloBoloProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="296dp"
+        android:padding="8dp"
+        android:text="Titulo"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="10pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imagemBoloProdutos" />
+
+    <TextView
+        android:id="@+id/precoProdutos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="PREÇO"
+        android:textColor="#808080"
+        android:textSize="7pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloBoloProdutos" />
+
+    <TextView
+        android:id="@+id/tituloQuantidadeProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:background="#A9A9A9"
+        android:paddingLeft="18dp"
+        android:text="Kg"
+        android:textColor="@color/black"
+        android:textSize="8pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/precoProdutos" />
+
+    <TextView
+        android:id="@+id/kilosProdutoBolo1"
+        android:layout_width="42dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:editable="true"
+        android:padding="6dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos" />
+
+    <ImageView
+        android:id="@+id/botaoSomaProdutos"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/kilosProdutoBolo1"
+        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"
+        app:srcCompat="@drawable/sinal_soma" />
+
+    <ImageView
+        android:id="@+id/botaoSubtracaoProdutos"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/kilosProdutoBolo1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"
+        app:srcCompat="@drawable/sinal_subtracao" />
+
+    <TextView
+        android:id="@+id/tituloSaboresProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="#A9A9A9"
+        android:paddingLeft="18dp"
+        android:text="Selecione o sabor"
+        android:textColor="@color/black"
+        android:textSize="8pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kilosProdutoBolo1" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="71dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloSaboresProdutos">
+
+        <LinearLayout
+            android:id="@+id/sabores"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/botaoAdicionarAoCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="28dp"
+        android:text="Adicionar ao Carrinho R$Total"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <ImageView
+        android:id="@+id/imagemPretaBolo1Voltar"
+        android:layout_width="78dp"
+        android:layout_height="69dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fundo_preto_circulo"/>
+
+    <ImageView
+        android:id="@+id/imagemPretaBolo1Adionar"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/fundo_preto_circulo"
+        android:alpha="0"
+        android:onClick="AdicionarKilos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/kilosProdutoBolo1"
+        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"/>
+    <ImageView
+        android:id="@+id/imagemPretaBolo1Subtrair"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:alpha="0"
+        android:onClick="SubtrairKilos"
+        android:src="@drawable/fundo_preto_circulo"
+        app:layout_constraintEnd_toStartOf="@+id/kilosProdutoBolo1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloQuantidadeProdutos"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

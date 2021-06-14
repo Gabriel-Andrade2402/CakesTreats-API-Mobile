@@ -2,24 +2,38 @@ package com.example.cakestreats;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.cakestreats.dialogs.Dialogos;
+import com.example.cakestreats.dialogos.Produtos;
+
 
 public class ManipularDialogos {
     private FragmentManager fragmentManager;
-    public ManipularDialogos(FragmentManager fragmentManager){
+    private Resources resources;
+    private LayoutInflater layoutInflater;
+    private Context applicationContext;
+    private ConstraintLayout layoutAtivo;
+    public ManipularDialogos(FragmentManager fragmentManager,Resources resources,LayoutInflater layoutInflater,
+                             Context applicationContext){
         this.fragmentManager=fragmentManager;
+        this.resources=resources;
+        this.layoutInflater=layoutInflater;
+        this.applicationContext=applicationContext;
     }
     //Animando todos Produtos
-    public void animationClick(View view) {
+    public Produtos animationClick(View view) {
         ConstraintLayout cl=(ConstraintLayout)view;
+        layoutAtivo=cl;
         float positionZ=cl.getZ();
         cl.setZ(1);
         ImageView img=(ImageView)cl.getChildAt(cl.getChildCount()-1);
@@ -41,17 +55,31 @@ public class ManipularDialogos {
         bouncer.play(objLayoutXVoltar).with(objLayoutYVoltar).after(objLayoutX);
         bouncer.start();
         cl.setZ(positionZ);
-        Dialogos dialogo=new Dialogos(R.layout.dialog_bolos);
-        dialogo.show(fragmentManager,"produtoDialogo");
+        TextView tx=(TextView)cl.getChildAt(0);
+        Produtos p=recuperarProduto(tx.getText().toString());
+        return p;
     }
-    //Constrói o dialogo correto
-    public void criarDialogo(View view,ConstraintLayout cl) {
+    //Criar produtos
+    public Produtos recuperarProduto(String titulo){
+        switch (titulo){
+            case "Bolos tipo 1":
+                return new Produtos(R.layout.activity_produtos,"bolos1");
+            case "Bolos tipo 2":
+                return new Produtos(R.layout.activity_produtos,"bolos2");
+            case "Bolos tipo 3":
+                return new Produtos(R.layout.activity_produtos,"bolos3");
+            case "Bolos tipo 4":
+                return new Produtos(R.layout.activity_produtos,"bolos4");
+        }
+        return null;
+    }
+    //Recuperar ScrollY
+    public void AtualizarScrollY(Integer scroll){
+        layoutAtivo.setScrollY(scroll);
+    }
+    //recuperarLayoutAtivo
 
+    public ConstraintLayout getLayoutAtivo() {
+        return layoutAtivo;
     }
-    //fechar dialogo
-    public void clickFechar(View view) {
-        DialogFragment dialog=(DialogFragment) fragmentManager.findFragmentByTag("produtoDialogo");
-        dialog.dismiss();
-    }
-
 }

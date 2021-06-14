@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.cakestreats.dialogos.Produtos;
 import com.example.cakestreats.fragments.CardapioBolos;
 import com.example.cakestreats.fragments.CardapioDoces;
 import com.example.cakestreats.fragments.CardapioPascoa;
@@ -46,14 +47,14 @@ public class Menu {
             objectAnimator.setDuration(500);
             objectAnimator.start();
         }
-        fragmentAtivo="CardapioBolos";
+        fragmentAtivo="bolos";
     }
     public void clickDoces(View view){
         //  removeFragment();
         CardapioDoces cardapioDoces=new CardapioDoces();
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment,cardapioDoces).addToBackStack(null).commit();
-        fragmentAtivo="CardapioDoces";
+        fragmentAtivo="doces";
         ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
         objectAnimator.setDuration(500);
         objectAnimator.start();
@@ -63,11 +64,16 @@ public class Menu {
         CardapioPascoa cardapioPascoa=new CardapioPascoa();
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment,cardapioPascoa).addToBackStack(null).commit();
-        fragmentAtivo="CardapioPascoa";
+        fragmentAtivo="pascoa";
         ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
         objectAnimator.setDuration(500);
         objectAnimator.start();
     }
+
+    public String getFragmentAtivo() {
+        return fragmentAtivo;
+    }
+    /*
     public void removeFragment(){
         FragmentTransaction ft=fragmentManager.beginTransaction();
         switch (fragmentAtivo){
@@ -84,5 +90,5 @@ public class Menu {
                 ft.remove(fragmentPascoa).commit();
                 break;
         }
-    }
+    }*/
 }
