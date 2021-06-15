@@ -71,13 +71,27 @@ public class ManipularDialogos {
     public Produtos recuperarProduto(String titulo){
         switch (titulo){
             case "Bolos tipo 1":
-                return new Produtos(R.layout.activity_produtos,"bolos1");
+                return new Produtos(R.layout.activity_produtos,"Bolos tipo 1");
             case "Bolos tipo 2":
-                return new Produtos(R.layout.activity_produtos,"bolos2");
+                return new Produtos(R.layout.activity_produtos,"Bolos tipo 2");
             case "Bolos tipo 3":
-                return new Produtos(R.layout.activity_produtos_bolo2,"bolos3");
+                return new Produtos(R.layout.activity_produtos_bolo2,"Bolos tipo 3");
             case "Bolos tipo 4":
-                return new Produtos(R.layout.activity_produtos,"bolos4");
+                return new Produtos(R.layout.activity_produtos,"Bolos tipo 4");
+            case "Bolos No Pote":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Bolos No Pote");
+            case "Bombons No Pote":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Bombons No Pote");
+            case "copoDaFelicidade":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Bombons No Pote");
+            case "Pão De Mel":
+                return new Produtos(R.layout.activity_produtos_padrao2,"Pão De Mel");
+            case "Brigadeiro Gourmet":
+                return new Produtos(R.layout.activity_produtos_padrao3,"Brigadeiro Gourmet");
+            case "Taças":
+                return new Produtos(R.layout.activity_produtos_padrao2,"Taças");
+            case "Barra recheada":
+                return new Produtos(R.layout.activity_produtos_padrao4,"Barra recheada");
         }
         return null;
     }

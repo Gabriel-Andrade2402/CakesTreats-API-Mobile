@@ -52,31 +52,38 @@ public class Produtos extends AppCompatActivity {
     //Atualiza o layout para o layout clicado
     public void atualizarLayout(){
         switch (layoutAtivo){
-            case "bolos1":
+            case "Bolos tipo 1":
                 atualizarBolos1();
                 break;
-            case "bolos2":
+            case "Bolos tipo 2":
                 atualizarBolos2();
                 break;
-            case "bolos3":
+            case "Bolos tipo 3":
                 atualizarBolos3();
                 break;
-            case "bolos4":
+            case "Bolos tipo 4":
                 atualizarBolos4();
                 break;
-            case "bolosDePote" :
+            case "Bolos No Pote":
+                atualizarBolosDePote();
                 break;
-            case "bombonsNoPote":
+            case "Bombons No Pote":
+                atualizarBombonsNoPote();
                 break;
-            case "copoDaFelicidade":
+            case "Copo Da Felicidade":
+                atualizarCopoDaFelicidade();
                 break;
-            case "paoDeMel":
+            case "Pão De Mel":
+                atualizarPaoDeMel();
                 break;
-            case "brigadeiroGourmet":
+            case "Brigadeiro Gourmet":
+                atualizarBrigadeiroGourmet();
                 break;
-            case "tacas":
+            case "Taças":
+                atualizarTacas();
                 break;
-            case "barraRecheada":
+            case "Barra recheada":
+                atualizarBarraRecheada();
                 break;
         }
     }
@@ -244,6 +251,21 @@ public class Produtos extends AppCompatActivity {
             scrollView.addView(tx);
         }
     }
+
+    private void atualizarBolosDePote(){}
+
+    private void atualizarBombonsNoPote(){}
+
+    private void atualizarCopoDaFelicidade(){}
+
+    private void atualizarPaoDeMel(){}
+
+    private void atualizarBrigadeiroGourmet(){}
+
+    private void atualizarTacas(){}
+
+    private void atualizarBarraRecheada(){}
+
     //Botão Voltar
     public void voltarCardapio(View view) {
         ImageView img=(ImageView)findViewById(R.id.imagemPretaBolo1Voltar);

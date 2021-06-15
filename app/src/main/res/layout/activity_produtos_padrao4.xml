@@ -1,6 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialogos.Produtos">
+
+
+    <ImageView
+        android:id="@+id/imagemBoloProdutos"
+        android:layout_width="421dp"
+        android:layout_height="301dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/balcao_bolo_no_pote" />
+
+    <ImageView
+        android:id="@+id/botaoVoltarProdutos"
+        android:layout_width="78dp"
+        android:layout_height="69dp"
+        android:onClick="voltarCardapio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sinal_voltar" />
+
+    <TextView
+        android:id="@+id/tituloBoloProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="296dp"
+        android:padding="8dp"
+        android:text="Titulo"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="10pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imagemBoloProdutos" />
+
+    <TextView
+        android:id="@+id/precoProdutos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="PREÇO"
+        android:textColor="#808080"
+        android:textSize="7pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloBoloProdutos" />
+
+    <TextView
+        android:id="@+id/TamanhoBolo"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:background="#A9A9A9"
+        android:paddingLeft="18dp"
+        android:text="Selecione o tamanho da barra"
+        android:textColor="@color/black"
+        android:textSize="8pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/precoProdutos" />
+
+    <ImageView
+        android:id="@+id/botaoTamanhoP"
+        android:layout_width="88dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:onClick="escolherTamanho"
+        app:layout_constraintBottom_toTopOf="@+id/botaoAdicionarAoCarrinho"
+        app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/sinal_tamaho_p" />
+
+    <ImageView
+        android:id="@+id/botaoTamanhoG"
+        android:layout_width="88dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        android:onClick="escolherTamanho"
+        app:layout_constraintBottom_toTopOf="@+id/botaoAdicionarAoCarrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/sinal_tamaho_g" />
+
+    <Button
+        android:id="@+id/botaoAdicionarAoCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="136dp"
+        android:text="Adicionar ao Carrinho"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:layout_constraintVertical_bias="0.453" />
+
+    <ImageView
+        android:id="@+id/imagemPretaBolo1Voltar"
+        android:layout_width="78dp"
+        android:layout_height="69dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
+
+    <ImageView
+        android:id="@+id/imagemPretaTamanhoP"
+        android:layout_width="90dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@+id/botaoAdicionarAoCarrinho"
+        app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
+
+    <ImageView
+        android:id="@+id/imagemPretaTamanhoG"
+        android:layout_width="88dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@+id/botaoAdicionarAoCarrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

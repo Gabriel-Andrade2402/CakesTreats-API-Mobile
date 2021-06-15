@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickMenu(View view){ menu.clickMenu(view,findViewById(R.id.backgroundPretoMenu));}
     //Iniciando fragmentDialog com animação este metodo está em todos ConstraintsLayouts Dos Bolos
     public void animationClick(View view) {
+        //Está instancia serve apenas para pegar os dados com getters e passar na intent
         Produtos p=manipularDialogos.ClickProduto(view);
         Intent intent= new Intent(this,Produtos.class);
         String layoutId=String.valueOf(p.getIdLayout());
@@ -72,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         switch (fragmentAtivo){
             case "bolos":
                 menu.clickBolos(findViewById(R.id.button_bolos));
-                break;case "doces":
+                break;
+            case "doces":
                 menu.clickDoces(findViewById(R.id.button_doces));
                 break;
             case "pascoa":
@@ -81,11 +83,6 @@ public class MainActivity extends AppCompatActivity {
         }
         manipularDialogos.AtualizarScrollY(bundle.getInt("scrollY"));
         Logger.getLogger(MainActivity.class.getName()).log(Level.WARNING,"Entrou recuperae");
-    }
-    public void gerarIntent(Produtos p){
-        setContentView(R.layout.activity_produtos);
-        Intent intent=new Intent(this,p.getClass());
-        //startActivity(intent);
     }
     public static void SetarFragmentAtivo(String produtoAtivo){
         fragmentAtivo=produtoAtivo;
