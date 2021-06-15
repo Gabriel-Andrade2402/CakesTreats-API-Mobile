@@ -171,6 +171,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
+    <!--Imagens pretas para animação-->
     <ImageView
         android:id="@+id/imagemPretaBolo1Voltar"
         android:layout_width="78dp"
@@ -183,7 +184,7 @@
         app:srcCompat="@drawable/fundo_preto_circulo" />
 
     <ImageView
-        android:id="@+id/imagemPretaTamanhoP"
+        android:id="@+id/imagemPreta4unidades"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
@@ -195,7 +196,7 @@
         app:srcCompat="@drawable/fundo_preto_circulo" />
 
     <ImageView
-        android:id="@+id/imagemPretaTamanhoM"
+        android:id="@+id/imagemPreta6unidades"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
@@ -203,6 +204,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
+
+    <ImageView
+        android:id="@+id/imagemPreta9unidades"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        android:alpha="0"
+        app:layout_constraintStart_toEndOf="@+id/botao6Unidades"
+        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
+        app:srcCompat="@drawable/fundo_preto_circulo" />
+
+    <ImageView
+        android:id="@+id/imagemPreta12unidades"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toEndOf="@+id/botao9Unidades"
         app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
         app:srcCompat="@drawable/fundo_preto_circulo" />
 

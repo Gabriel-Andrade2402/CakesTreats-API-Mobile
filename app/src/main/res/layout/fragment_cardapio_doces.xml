@@ -23,9 +23,9 @@
             <!-- Aqui começa o Layout do Bolos de pote-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutPaiDocesBolosDePote"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
+                android:layout_height="260dp"
                 android:onClick="animationClick"
-                android:layout_height="280dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="7dp"
                 >
@@ -76,9 +76,9 @@
                         android:id="@+id/tituloDocesBolosDePote"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:elevation="10dp"
                         android:fontFamily="@font/changa_medium"
                         android:padding="9dp"
-                        android:elevation="10dp"
                         android:text="Bolos No Pote"
                         android:textColor="@color/white"
                         android:textSize="13pt"
@@ -87,7 +87,7 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.901" />
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <ImageView
                         android:id="@+id/fundoPreto"

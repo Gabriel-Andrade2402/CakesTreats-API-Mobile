@@ -79,7 +79,7 @@
         android:layout_marginTop="4dp"
         android:onClick="escolherTamanho"
         android:tag="R$5,00"
-        app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
+        app:layout_constraintEnd_toStartOf="@+id/ml210"
         app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
@@ -93,7 +93,7 @@
         android:onClick="escolherTamanho"
         android:tag="R$7,00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
         app:srcCompat="@drawable/ml210_branco" />
@@ -111,11 +111,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoTamanhoM" />
+        app:layout_constraintTop_toBottomOf="@+id/ml210" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="71dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -155,25 +155,25 @@
         app:srcCompat="@drawable/fundo_preto_circulo" />
 
     <ImageView
-        android:id="@+id/imagemPretaTamanhoP"
+        android:id="@+id/imagemPreta145ml"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
         android:alpha="0"
-        app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
+        app:layout_constraintEnd_toStartOf="@+id/ml210"
         app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
         app:srcCompat="@drawable/fundo_preto_circulo" />
 
     <ImageView
-        android:id="@+id/imagemPretaTamanhoM"
+        android:id="@+id/imagemPreta210ml"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
         android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
         app:srcCompat="@drawable/fundo_preto_circulo" />

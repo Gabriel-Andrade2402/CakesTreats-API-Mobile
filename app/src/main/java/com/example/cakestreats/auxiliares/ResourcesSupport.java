@@ -32,6 +32,11 @@ public class ResourcesSupport{
     private Drawable imagemDialogoBrigadeiroGourmet;
     private Drawable imagemDialogoTacas;
     private Drawable imagemDialogoBarraDeChocolate;
+    private Drawable imagemDialogoOvoSimples;
+    private Drawable imagemDialogoOvoTrufado;
+    private Drawable imagemDialogoOvoDeColher;
+
+    //Sabores e cascas
     private String[] saboresBolo1={"Limão","Maracujá","Abacaxi","Morango tradicional","Doce de leite"};
     private String[] saboresBolo2={"Ninho com morango","Ninho com abacaxi","Ganache","Brigadeiro","Beijinho","Paçoca",
     "Doce de leite com coco","Doce de leite com ameixa","Doce de leite com abacaxi"};
@@ -39,7 +44,7 @@ public class ResourcesSupport{
     "Maracujá","Pacoça","Churros","Ninho com nutella","Mandioca com coco","Banana caramelada","Abacaxi caramelado","Chocolate"};
     private String[] saboresBolo4={"Ninho com nutella","Sensação","Ferrero Rocher","Churros","Trufado de chocolate com maracujá"
     ,"Trufado de chocolate com limão","Kinder bueno"};
-    private String[] saboresBolosNoPote={"Ninho com nutella,Morango,Abacaxi,Ganache,Beijinho,Maracujá,Limão,Brigadeiro",
+    private String[] saboresBolosNoPote={"Ninho com nutella","Morango,Abacaxi","Ganache","Beijinho","Maracujá","Limão","Brigadeiro",
             "Paçoca","Doce de leite com coco","Ameixa","Abacaxi"};
     private String[] saboresBombonsNoPote={"Morango com uva","Verrine de maracujá","Morango a base de ganache","Limão a base de ganache",
             "Bolacha champanhe e mousse","Delicia de abacaxi"};
@@ -51,6 +56,16 @@ public class ResourcesSupport{
     private String[] Tacas1={"Diversos sabores"};
     private String[] Tacas2={"Kinder bueno","Ferrero rocher","Rafaello","milka"};
 
+    //PASCOA
+    private String[] cascasEspeciais={"Bolacha oreo + R$ 3,00","Amendoim + R$ 3,00"};
+    private String[] cascasComuns={"Casca ao leite","Casca branca"};
+    private String[] saboresOvoSimples={"Chocolate ao leite","Chocolate branco"};
+    private String[] saboresOvoDeColher1={"Trufa de maracujá","Trufa de limão","Brigadeiro","Ganache","Trufa de morango"
+            ,"Prestígio","Paçoca","Doce de leite"};
+    private String[] saboresOvoDeColher2={"Kinger bueno","Brigadeiro de ninho com nutella","Sensação","Ferrero rocher",
+            "Rafaello","Doce de leite com amendoim","Brigadeiro de chocolate belga","Oreo e M&Ms","Recheio da felicidade(Uma camada brigadeiro" +
+            " tradicional,brigadeiro de leite ninho,nutella,geleia de morango e chantininho)"};
+    private String[] saboresOvoTrufado={"sabor1","sabor2","sabor3"};
     //Construtor
     public ResourcesSupport(Resources res){
         resources=res;
@@ -64,7 +79,10 @@ public class ResourcesSupport{
         imagemDialogoPaoDeMel=ResourcesCompat.getDrawable(res,R.drawable.balcao_pao_de_mel,null);
         imagemDialogoBrigadeiroGourmet=ResourcesCompat.getDrawable(res,R.drawable.balcao_brigadeiro_gourmet,null);
         imagemDialogoTacas=ResourcesCompat.getDrawable(res,R.drawable.balcao_tacas,null);
-        imagemDialogoBarraDeChocolate=ResourcesCompat.getDrawable(res,R.drawable.barra_chocolate,null);
+        imagemDialogoBarraDeChocolate=ResourcesCompat.getDrawable(res,R.drawable.balcao_barra_chocolate,null);
+        imagemDialogoOvoDeColher=ResourcesCompat.getDrawable(res,R.drawable.ovo_de_colher,null);
+        imagemDialogoOvoSimples=ResourcesCompat.getDrawable(res,R.drawable.ovo_simples,null);
+        imagemDialogoOvoTrufado=ResourcesCompat.getDrawable(res,R.drawable.ovo_trufado,null);
     }
 
     //Retorno das imagens
@@ -92,6 +110,12 @@ public class ResourcesSupport{
                 return imagemDialogoTacas;
             case "Barra recheada":
                 return imagemDialogoBarraDeChocolate;
+            case "Ovo Simples":
+                return imagemDialogoOvoSimples;
+            case "Ovo De Colher":
+                return imagemDialogoOvoDeColher;
+            case "Ovo Trufado":
+                return imagemDialogoOvoTrufado;
         }
         return null;
     }
@@ -133,6 +157,18 @@ public class ResourcesSupport{
                 return new ArrayList<String>(Arrays.asList(Tacas1));
             case "Taças2":
                 return new ArrayList<String>(Arrays.asList(Tacas2));
+            case "Cascas Especiais":
+                return new ArrayList<String>(Arrays.asList(cascasEspeciais));
+            case "Cascas Comuns":
+                return new ArrayList<String>(Arrays.asList(cascasComuns));
+            case "Ovo Simples":
+                return new ArrayList<String>(Arrays.asList(saboresOvoSimples));
+            case "Ovo De Colher1":
+                return new ArrayList<String>(Arrays.asList(saboresOvoDeColher1));
+            case "Ovo De Colher2":
+                return new ArrayList<String>(Arrays.asList(saboresOvoDeColher2));
+            case "Ovo Trufado":
+                return new ArrayList<String>(Arrays.asList(saboresOvoTrufado));
         }
         return null;
     }

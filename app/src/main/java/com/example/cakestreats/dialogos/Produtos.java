@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,7 @@ public class Produtos extends AppCompatActivity {
     private Integer idLayout;
     private String layoutAtivo;
     private TextView saborSelecionado;
+    private TextView cascaSelecionada;
     private ImageView tamanhoSelecionado;
     private Bundle bundle;
     public Produtos(Integer id,String layout){
@@ -86,6 +88,15 @@ public class Produtos extends AppCompatActivity {
                 break;
             case "Barra recheada":
                 atualizarBarraRecheada();
+                break;
+            case "Ovo Simples":
+                atualizarOvoSimples();
+                break;
+            case "Ovo Trufado":
+                atualizarOvoTrufado();
+                break;
+            case "Ovo De Colher":
+                atualizarOvoDeColher();
                 break;
         }
     }
@@ -351,6 +362,8 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("400ml R$ 18,00 590ml R$25,00");
         ImageView imagemMl400=(ImageView) findViewById(R.id.ml145);
         ImageView imagemMl590=(ImageView) findViewById(R.id.ml210);
+        imagemMl400.setTag("R$ 18,00");
+        imagemMl590.setTag("R$ 25,00");
         imagemMl400.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml400_branco,null));
         imagemMl590.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml590_branco,null));
         botao.setText("ADICIONAR AO CARRINHO");
@@ -499,7 +512,7 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
-                    botao.setText(botao.getText()+" R$85,00");
+                    botao.setText(botao.getText().subSequence(0,20)+" R$85,00");
                 }
             });
             scrollView.addView(tx);
@@ -524,7 +537,7 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
-                    botao.setText(botao.getText()+" R$95,00");
+                    botao.setText(botao.getText().subSequence(0,20)+" R$95,00");
                 }
             });
             scrollView.addView(tx);
@@ -542,6 +555,228 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("P R$ 15,00  G R$ 25,00");
         botao.setText("ADICIONAR AO CARRINHO");
     }
+
+    private void atualizarOvoSimples(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollViewCascas=(LinearLayout) findViewById(R.id.LinearLayoutCascas);
+        LinearLayout scrollViewSabores=(LinearLayout) findViewById(R.id.linearLayoutSabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Simples"));
+        tituloLayout.setText("Ovo Simples");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Simples");
+        for(String s:listCascas){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(cascaSelecionada!=null) {
+                        cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
+                        cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    cascaSelecionada=tx;
+                }
+            });
+            scrollViewCascas.addView(tx);
+        }
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollViewSabores.addView(tx);
+        }
+    }
+
+    private void atualizarOvoTrufado(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollViewCascas=(LinearLayout) findViewById(R.id.LinearLayoutCascas);
+        LinearLayout scrollViewSabores=(LinearLayout) findViewById(R.id.linearLayoutSabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Trufado"));
+        tituloLayout.setText("Ovo Trufado");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Trufado");
+        for(String s:listCascas){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(cascaSelecionada!=null) {
+                        cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
+                        cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    cascaSelecionada=tx;
+                }
+            });
+            scrollViewCascas.addView(tx);
+        }
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollViewSabores.addView(tx);
+        }
+    }
+
+    private void atualizarOvoDeColher(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollViewCascas=(LinearLayout) findViewById(R.id.LinearLayoutCascas);
+        LinearLayout scrollViewSabores=(LinearLayout) findViewById(R.id.linearLayoutSabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo De Colher"));
+        tituloLayout.setText("Ovo De Colher");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher1");
+        List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher2");
+        for(String s:listCascas){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(cascaSelecionada!=null) {
+                        cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
+                        cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    cascaSelecionada=tx;
+                }
+            });
+            scrollViewCascas.addView(tx);
+        }
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,s);
+            scrollViewSabores.addView(tx);
+        }
+        for(String s:listSabores2){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollViewSabores.addView(tx);
+        }
+    }
+
 
     //Botão Voltar
     public void voltarCardapio(View view) {
@@ -597,6 +832,18 @@ public class Produtos extends AppCompatActivity {
                 return (ImageView) findViewById(R.id.imagemPretaTamanhoP);
             case R.id.botaoTamanhoM:
                 return (ImageView) findViewById(R.id.imagemPretaTamanhoM);
+            case R.id.ml145:
+                return (ImageView) findViewById(R.id.imagemPreta145ml);
+            case R.id.ml210:
+                return (ImageView) findViewById(R.id.imagemPreta210ml);
+            case R.id.botao4Unidades:
+                return (ImageView) findViewById(R.id.imagemPreta4unidades);
+            case R.id.botao6Unidades:
+                return (ImageView) findViewById(R.id.imagemPreta6unidades);
+            case R.id.botao9Unidades:
+                return (ImageView) findViewById(R.id.imagemPreta9unidades);
+            case R.id.botao12Unidades:
+                return (ImageView) findViewById(R.id.imagemPreta12unidades);
         }
         return null;
     }
@@ -607,7 +854,7 @@ public class Produtos extends AppCompatActivity {
     }
     //Animar Cliques
     public void animarClick(ImageView img){
-        ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",0.5f);
+        ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",0.3f);
         objImagem.setDuration(80);
         ObjectAnimator objImagem2= ObjectAnimator.ofFloat(img,"alpha",0f);
         objImagem.setDuration(80);

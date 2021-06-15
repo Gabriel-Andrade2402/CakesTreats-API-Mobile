@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--Este é o layout principal do produto que faz o scroll Y-->
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="9dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imagemBoloProdutos"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/balcao_ovo_de_colher" />
+
+                <TextView
+                    android:id="@+id/tituloBoloProdutos"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:padding="8dp"
+                    android:text="Titulo"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="10pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagemBoloProdutos" />
+
+                <TextView
+                    android:id="@+id/tituloEscolhaCasca"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#A9A9A9"
+                    android:padding="8dp"
+                    android:text="Escolha uma casca"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloBoloProdutos"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/tituloEscolhaSabores"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#A9A9A9"
+                    android:padding="8dp"
+                    android:text="Escolha um Sabor"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollCascas" />
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollCascas"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloEscolhaCasca">
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutCascas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollSabores"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloEscolhaSabores">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutSabores"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <Button
+                    android:id="@+id/botaoAdicionarAoCarrinho"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Adicionar ao carrinho"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gramas350" />
+
+                <ImageView
+                    android:id="@+id/gramas250"
+                    android:layout_width="76dp"
+                    android:layout_height="71dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.051"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollSabores"
+                    app:srcCompat="@drawable/gramas250_branco" />
+
+
+                <ImageView
+                    android:id="@+id/gramas350"
+                    android:layout_width="76dp"
+                    android:layout_height="71dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.344"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollSabores"
+                    app:srcCompat="@drawable/gramas350_branco" />
+
+                <ImageView
+                    android:id="@+id/gramas500"
+                    android:layout_width="76dp"
+                    android:layout_height="71dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.649"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollSabores"
+                    app:srcCompat="@drawable/gramas500_branco" />
+
+                <ImageView
+                    android:id="@+id/gramas700"
+                    android:layout_width="76dp"
+                    android:layout_height="71dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.948"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollSabores"
+                    app:srcCompat="@drawable/gramas700_branco" />
+
+                <ImageView
+                    android:id="@+id/botaoVoltar"
+                    android:layout_width="77dp"
+                    android:layout_height="73dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="voltarCardapio"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.048"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/sinal_voltar" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>

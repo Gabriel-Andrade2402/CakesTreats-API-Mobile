@@ -58,6 +58,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0"
+                    app:layout_constraintBottom_toBottomOf="@+id/imagemPascoaOvoSimples"
+                    app:layout_constraintEnd_toEndOf="@+id/imagemPascoaOvoSimples"
+                    app:layout_constraintStart_toStartOf="@+id/imagemPascoaOvoSimples"
+                    app:layout_constraintTop_toTopOf="@+id/imagemPascoaOvoSimples"
+                    app:srcCompat="@drawable/fundopreto" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!--Aqui inicia o Layout dos Ovos Trufados-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,6 +108,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imagemPretaOvoTrufado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0"
+                    app:layout_constraintEnd_toEndOf="@+id/imagemPascoaOvoTrufado"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/imagemPascoaOvoTrufado"
+                    app:layout_constraintTop_toTopOf="@+id/imagemPascoaOvoTrufado"
+                    app:srcCompat="@drawable/fundopreto" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!--Aqui inicia o Layout dos Ovos de colher-->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -135,6 +157,17 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imagemPretaOvoDeColher"
+                    android:layout_width="wrap_content"
+                    android:alpha="0"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/imagemPascoaOvoDeColher"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/imagemPascoaOvoDeColher"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fundopreto" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

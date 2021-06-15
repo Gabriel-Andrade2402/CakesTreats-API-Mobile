@@ -17,6 +17,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.cakestreats.dialogos.Produtos;
 
+import org.w3c.dom.Text;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -82,8 +84,8 @@ public class ManipularDialogos {
                 return new Produtos(R.layout.activity_produtos_padrao1,"Bolos No Pote");
             case "Bombons No Pote":
                 return new Produtos(R.layout.activity_produtos_padrao1,"Bombons No Pote");
-            case "copoDaFelicidade":
-                return new Produtos(R.layout.activity_produtos_padrao1,"Bombons No Pote");
+            case "Copo Da Felicidade":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Copo Da Felicidade");
             case "Pão De Mel":
                 return new Produtos(R.layout.activity_produtos_padrao2,"Pão De Mel");
             case "Brigadeiro Gourmet":
@@ -92,6 +94,12 @@ public class ManipularDialogos {
                 return new Produtos(R.layout.activity_produtos_padrao2,"Taças");
             case "Barra recheada":
                 return new Produtos(R.layout.activity_produtos_padrao4,"Barra recheada");
+            case "Ovo Simples":
+                return new Produtos(R.layout.activity_produtos_pascoa_padrao1,"Ovo Simples");
+            case "Ovo Trufado":
+                return new Produtos(R.layout.activity_produtos_pascoa_padrao1,"Ovo Trufado");
+            case "Ovo De Colher":
+                return new Produtos(R.layout.activity_produtos_pascoa_padrao1,"Ovo De Colher");
         }
         return null;
     }
