@@ -3,11 +3,13 @@ package com.example.cakestreats.dialogos;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -252,19 +254,294 @@ public class Produtos extends AppCompatActivity {
         }
     }
 
-    private void atualizarBolosDePote(){}
+    private void atualizarBolosDePote(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos No Pote"));
+        tituloLayout.setText("Bolos No Pote");
+        precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos No Pote");
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollView.addView(tx);
+        }
+    }
 
-    private void atualizarBombonsNoPote(){}
+    private void atualizarBombonsNoPote(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bombons No Pote"));
+        tituloLayout.setText("Bombons No Pote");
+        precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bombons No Pote");
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollView.addView(tx);
+        }
+    }
 
-    private void atualizarCopoDaFelicidade(){}
+    private void atualizarCopoDaFelicidade(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Copo Da Felicidade"));
+        tituloLayout.setText("Copo Da Felicidade");
+        precoLayout.setText("400ml R$ 18,00 590ml R$25,00");
+        ImageView imagemMl400=(ImageView) findViewById(R.id.ml145);
+        ImageView imagemMl590=(ImageView) findViewById(R.id.ml210);
+        imagemMl400.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml400_branco,null));
+        imagemMl590.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml590_branco,null));
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Copo Da Felicidade");
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollView.addView(tx);
+        }
+    }
 
-    private void atualizarPaoDeMel(){}
+    private void atualizarPaoDeMel(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Pão De Mel"));
+        tituloLayout.setText("Pão De Mel");
+        precoLayout.setText("R$ 5,00");
+        botao.setText("ADICIONAR AO CARRINHO R$ 5,00");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Pão De Mel");
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollView.addView(tx);
+        }
+    }
 
-    private void atualizarBrigadeiroGourmet(){}
+    private void atualizarBrigadeiroGourmet(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Brigadeiro Gourmet"));
+        tituloLayout.setText("Brigadeiro Gourmet");
+        precoLayout.setText("caixa 4u R$ 10,00  caixa 6u R$ 15,00  caixa 9u R$ 20,00  caixa 12u R$ 25,00");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Brigadeiro Gourmet");
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                }
+            });
+            scrollView.addView(tx);
+        }
+    }
 
-    private void atualizarTacas(){}
+    private void atualizarTacas(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Taças"));
+        tituloLayout.setText("Taças");
+        precoLayout.setText("R$ 85,00 - R$ 95,00");
+        botao.setText("ADICIONAR AO CARRINHO");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Taças1");
+        List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Taças2");
+        for(String s:listSabores){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                    botao.setText(botao.getText()+" R$85,00");
+                }
+            });
+            scrollView.addView(tx);
+        }
+        for(String s:listSabores2){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(saborSelecionado!=null) {
+                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                    }TextView tx=(TextView)v;
+                    tx.setElevation(20f);
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    saborSelecionado=tx;
+                    botao.setText(botao.getText()+" R$95,00");
+                }
+            });
+            scrollView.addView(tx);
+        }
+    }
 
-    private void atualizarBarraRecheada(){}
+    private void atualizarBarraRecheada(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Barra recheada"));
+        tituloLayout.setText("Barra recheada");
+        precoLayout.setText("P R$ 15,00  G R$ 25,00");
+        botao.setText("ADICIONAR AO CARRINHO");
+    }
 
     //Botão Voltar
     public void voltarCardapio(View view) {

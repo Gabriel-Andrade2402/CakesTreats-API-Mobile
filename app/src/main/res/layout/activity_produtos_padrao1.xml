@@ -73,12 +73,12 @@
         app:layout_constraintTop_toBottomOf="@+id/precoProdutos" />
 
     <ImageView
-        android:id="@+id/botaoTamanhoP"
+        android:id="@+id/ml145"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
         android:onClick="escolherTamanho"
-        android:tag="R$15,00"
+        android:tag="R$5,00"
         app:layout_constraintEnd_toStartOf="@+id/botaoTamanhoM"
         app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,12 +86,12 @@
         app:srcCompat="@drawable/ml145_branco" />
 
     <ImageView
-        android:id="@+id/botaoTamanhoM"
+        android:id="@+id/ml210"
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
         android:onClick="escolherTamanho"
-        android:tag="R$16,00"
+        android:tag="R$7,00"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.758"
         app:layout_constraintStart_toStartOf="parent"
