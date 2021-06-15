@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/frameLayoutDoces"
-    tools:context=".fragments.CardapioDoces">
+    tools:context=".MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,10 +24,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutPaiDocesBolosDePote"
                 android:layout_width="300dp"
+                android:onClick="animationClick"
                 android:layout_height="280dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                >
 
                 <ImageView
                     android:id="@+id/imagemDocesBolosDePote"
@@ -54,6 +55,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0">
 
+
                     <TextView
                         android:id="@+id/precoDocesBolosDePote"
                         android:layout_width="wrap_content"
@@ -76,6 +78,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/changa_medium"
                         android:padding="9dp"
+                        android:elevation="10dp"
                         android:text="Bolos No Pote"
                         android:textColor="@color/white"
                         android:textSize="13pt"
@@ -85,6 +88,17 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+
+                    <ImageView
+                        android:id="@+id/fundoPreto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/background_preto_largo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,10 +107,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutPaiDocesBombonsNoPote"
                 android:layout_width="300dp"
+                android:onClick="animationClick"
                 android:layout_height="280dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                >
 
                 <ImageView
                     android:id="@+id/imagemDocesBombonsNoPote"
@@ -148,12 +163,23 @@
                         android:text="Bombons No Pote"
                         android:textColor="@color/white"
                         android:textSize="13pt"
+                        android:elevation="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+                    <ImageView
+                        android:id="@+id/fundoPreto2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/background_preto_largo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -163,9 +189,9 @@
                 android:id="@+id/layoutPaiDocesCopoDaFelicidade"
                 android:layout_width="300dp"
                 android:layout_height="280dp"
+                android:onClick="animationClick"
                 android:layout_gravity="center"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                android:layout_marginBottom="7dp">
 
                 <ImageView
                     android:id="@+id/imagemDocesCopoDaFelicidade"
@@ -217,12 +243,23 @@
                         android:text="Copo Da Felicidade"
                         android:textColor="@color/white"
                         android:textSize="13pt"
+                        android:elevation="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+                    <ImageView
+                        android:id="@+id/fundoPreto3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/background_preto_largo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -232,8 +269,8 @@
                 android:layout_width="300dp"
                 android:layout_height="280dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                android:onClick="animationClick"
+                android:layout_marginBottom="7dp">
 
                 <ImageView
                     android:id="@+id/imagemDocesPaoDeMel"
@@ -285,12 +322,23 @@
                         android:text="Pão De Mel"
                         android:textColor="@color/white"
                         android:textSize="13pt"
+                        android:elevation="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+                    <ImageView
+                        android:id="@+id/fundoPreto4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/background_preto_largo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -298,10 +346,10 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutPaiDocesBrigadeiroGourmet"
                 android:layout_width="300dp"
+                android:onClick="animationClick"
                 android:layout_height="280dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                android:layout_marginBottom="7dp">
 
                 <ImageView
                     android:id="@+id/imagemDocesBrigadeiroGourmet"
@@ -353,12 +401,23 @@
                         android:text="Brigadeiro Gourmet"
                         android:textColor="@color/white"
                         android:textSize="13pt"
+                        android:elevation="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+                    <ImageView
+                        android:id="@+id/fundoPreto5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/background_preto_largo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -367,9 +426,9 @@
                 android:id="@+id/layoutPaiDocesTacas"
                 android:layout_width="300dp"
                 android:layout_height="280dp"
+                android:onClick="animationClick"
                 android:layout_gravity="center"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                android:layout_marginBottom="7dp">
 
                 <ImageView
                     android:id="@+id/imagemDocesTacas"
@@ -421,12 +480,23 @@
                         android:text="Taças"
                         android:textColor="@color/white"
                         android:textSize="13pt"
+                        android:elevation="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+                    <ImageView
+                        android:id="@+id/fundoPreto6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/background_preto_largo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -435,9 +505,9 @@
                 android:id="@+id/layoutPaiBarraRecheada"
                 android:layout_width="300dp"
                 android:layout_height="280dp"
+                android:onClick="animationClick"
                 android:layout_gravity="center"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/rectangle_background">
+                android:layout_marginBottom="7dp">
 
                 <ImageView
                     android:id="@+id/imagemDocesBarraRecheada"
@@ -488,6 +558,7 @@
                         android:padding="9dp"
                         android:text="Barra recheada"
                         android:textColor="@color/white"
+                        android:elevation="10dp"
                         android:textSize="13pt"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -495,6 +566,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.901" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView

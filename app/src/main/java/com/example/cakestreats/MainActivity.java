@@ -58,15 +58,14 @@ public class MainActivity extends AppCompatActivity {
        menu.clickPascoa(view);
     }
     public void clickMenu(View view){ menu.clickMenu(view,findViewById(R.id.backgroundPretoMenu));}
-    //Iniciando fragmentDialog com animação
+    //Iniciando fragmentDialog com animação este metodo está em todos ConstraintsLayouts Dos Bolos
     public void animationClick(View view) {
-        Produtos p=manipularDialogos.animationClick(view);
+        Produtos p=manipularDialogos.ClickProduto(view);
         Intent intent= new Intent(this,Produtos.class);
         String layoutId=String.valueOf(p.getIdLayout());
         intent.putExtra("layoutId",layoutId);
         intent.putExtra("layoutAtivo",p.getLayoutAtivo());
         startActivity(intent);
-
     }
     //Recuperar Estado
     public void recuperarEstado(String fragmentAtivo){

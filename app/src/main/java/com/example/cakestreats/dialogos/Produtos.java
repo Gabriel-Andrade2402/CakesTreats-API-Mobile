@@ -64,6 +64,20 @@ public class Produtos extends AppCompatActivity {
             case "bolos4":
                 atualizarBolos4();
                 break;
+            case "bolosDePote" :
+                break;
+            case "bombonsNoPote":
+                break;
+            case "copoDaFelicidade":
+                break;
+            case "paoDeMel":
+                break;
+            case "brigadeiroGourmet":
+                break;
+            case "tacas":
+                break;
+            case "barraRecheada":
+                break;
         }
     }
 

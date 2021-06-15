@@ -2,6 +2,7 @@ package com.example.cakestreats;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,6 +16,9 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.cakestreats.dialogos.Produtos;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ManipularDialogos {
@@ -31,13 +35,21 @@ public class ManipularDialogos {
         this.applicationContext=applicationContext;
     }
     //Animando todos Produtos
-    public Produtos animationClick(View view) {
+    public Produtos ClickProduto(View view) {
         ConstraintLayout cl=(ConstraintLayout)view;
         layoutAtivo=cl;
         float positionZ=cl.getZ();
         cl.setZ(1);
-        ImageView img=(ImageView)cl.getChildAt(cl.getChildCount()-1);
-        ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",0.3f);
+        ImageView img=(ImageView)retornarImagemPretaDoLayout(cl);
+        animarLayoutComZoom(cl,img);
+        cl.setZ(positionZ);
+        TextView tx=retornarTituloDoLayout(cl);
+        Produtos p=recuperarProduto(tx.getText().toString());
+        return p;
+    }
+    //AnimarLayout com zoom
+    public void animarLayoutComZoom(ConstraintLayout cl,ImageView img){
+        ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",1f);
         objImagem.setDuration(80);
         ObjectAnimator objLayoutX=ObjectAnimator.ofFloat(cl,"scaleX",1.3f);
         objLayoutX.setDuration(90);
@@ -54,10 +66,6 @@ public class ManipularDialogos {
         bouncer.play(objLayoutX).with(objLayoutY);
         bouncer.play(objLayoutXVoltar).with(objLayoutYVoltar).after(objLayoutX);
         bouncer.start();
-        cl.setZ(positionZ);
-        TextView tx=(TextView)cl.getChildAt(0);
-        Produtos p=recuperarProduto(tx.getText().toString());
-        return p;
     }
     //Criar produtos
     public Produtos recuperarProduto(String titulo){
@@ -73,12 +81,42 @@ public class ManipularDialogos {
         }
         return null;
     }
+    //Auxiliares
+
+    /*Este método é baseado na hierarquia dos XMLS ConstraintsLayouts dos produtos
+    sendo uma má pratica, e deve ser refatorada. a unica finalidade deste método é encotrar
+    onde está o titulo do produto para que o Layout certo seja criado
+     */
+    public TextView retornarTituloDoLayout(ConstraintLayout cl){
+        try{
+            return (TextView)cl.getChildAt(0);
+        }catch (Exception e){
+            ConstraintLayout cons=(ConstraintLayout) cl.getChildAt(1);
+            return (TextView)cons.getChildAt(1);
+        }
+    }
+    /*Este método é baseado na hierarquia dos XMLS ConstraintsLayouts dos produtos
+    sendo uma má pratica, e deve ser refatorada. a unica finalidade deste método é encotrar
+    onde está a imagem preta
+     */
+    public ImageView retornarImagemPretaDoLayout(ConstraintLayout cl){
+        try{
+            return (ImageView) cl.getChildAt(cl.getChildCount()-1);
+        }catch (Exception e){
+            try{
+                ConstraintLayout cons=(ConstraintLayout) cl.getChildAt(1);
+                return (ImageView) cons.getChildAt(cl.getChildCount()-1);
+            }catch (Exception ee){
+
+            }
+        }
+        return null;
+    }
     //Recuperar ScrollY
     public void AtualizarScrollY(Integer scroll){
         layoutAtivo.setScrollY(scroll);
     }
     //recuperarLayoutAtivo
-
     public ConstraintLayout getLayoutAtivo() {
         return layoutAtivo;
     }
