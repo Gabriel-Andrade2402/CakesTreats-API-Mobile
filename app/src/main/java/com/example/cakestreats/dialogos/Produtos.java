@@ -30,6 +30,7 @@ import com.example.cakestreats.auxiliares.ResourcesSupport;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -43,7 +44,7 @@ public class Produtos extends AppCompatActivity {
     private TextView cascaSelecionada;
     private TextView cascaSelecionadaEspecial;
     private ImageView tamanhoSelecionado;
-    private List<Integer> valores;
+    private List<Integer> valores=new ArrayList<>();
 
     //Recuperar Estado antigo com botão voltar;
     private String recEstLayoutAntigo;
@@ -118,7 +119,6 @@ public class Produtos extends AppCompatActivity {
         }
     }
 
-    //proximo a refatorar
     public void atualizarBolos1(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
@@ -554,6 +554,7 @@ public class Produtos extends AppCompatActivity {
             }
         });
     }
+
     private void atualizarBarraRecheada(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
@@ -565,6 +566,7 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("P R$ 15,00  G R$ 25,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
     }
+
     private void atualizarOvoTrufado(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         ImageView gramas250=(ImageView) findViewById(R.id.gramas250);
@@ -815,8 +817,7 @@ public class Produtos extends AppCompatActivity {
         int soma=Integer.parseInt(tx.getText().toString())+1;
         tx.setText(String.valueOf(soma));
         adicionarAoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
-        valores.add(Integer.parseInt(preco.getText().toString().substring(3,5))*soma);
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(calcTotal())+",00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(Integer.parseInt(preco.getText().toString().substring(3,5))*soma)+",00");
     }
     public void SubtrairKilos(View view) {
         ImageView img=(ImageView)view;
@@ -828,8 +829,7 @@ public class Produtos extends AppCompatActivity {
         subtracao=1;}else{
         tx.setText(String.valueOf(subtracao));}
         adicionarAoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
-        valores.add(Integer.parseInt(preco.getText().toString().substring(3,5))*subtracao);
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(calcTotal())+",00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(Integer.parseInt(preco.getText().toString().substring(3,5))*subtracao)+",00");
     }
     //Escolher tamanho
     public void escolherTamanho(View view){
