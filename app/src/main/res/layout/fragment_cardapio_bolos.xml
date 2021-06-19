@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/frameLayoutBolos"
-    tools:context=".fragments.CardapioBolos">
+    android:tag="bolos"
+    android:id="@+id/frameLayoutPrincipal"
+    tools:context=".Cardapio.ActivityCardapio">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayoutFragment">
 
         <LinearLayout
             android:layout_width="match_parent"

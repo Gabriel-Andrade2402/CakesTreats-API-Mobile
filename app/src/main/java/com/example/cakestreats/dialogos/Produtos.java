@@ -3,6 +3,7 @@ package com.example.cakestreats.dialogos;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.BundleCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.animation.AnimatorSet;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.cakestreats.Cardapio.ActivityCardapio;
 import com.example.cakestreats.MainActivity;
 import com.example.cakestreats.R;
 import com.example.cakestreats.auxiliares.ResourcesSupport;
@@ -36,7 +38,12 @@ public class Produtos extends AppCompatActivity {
     private TextView saborSelecionado;
     private TextView cascaSelecionada;
     private ImageView tamanhoSelecionado;
-    private Bundle bundle;
+
+    //Recuperar Estado antigo com botão voltar;
+    private String recEstLayoutAntigo;
+    private String recEstScrollY;
+
+    //Construtor
     public Produtos(Integer id,String layout){
         idLayout=id;
         layoutAtivo=layout;
@@ -49,8 +56,9 @@ public class Produtos extends AppCompatActivity {
         Intent in=getIntent();
         idLayout=Integer.parseInt(in.getStringExtra("layoutId"));
         layoutAtivo=in.getStringExtra("layoutAtivo");
+        recEstLayoutAntigo=in.getStringExtra("recEstFragment");
+        recEstScrollY=in.getStringExtra("recEstScrollY");
         setContentView(idLayout);
-        bundle=savedInstanceState;
         atualizarLayout();
     }
     //Atualiza o layout para o layout clicado
@@ -776,13 +784,15 @@ public class Produtos extends AppCompatActivity {
             scrollViewSabores.addView(tx);
         }
     }
-
+    //Fim da construção do layout
 
     //Botão Voltar
     public void voltarCardapio(View view) {
         ImageView img=(ImageView)findViewById(R.id.imagemPretaBolo1Voltar);
         animarClick(img);
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, ActivityCardapio.class);
+        intent.putExtra("recEstFragment",recEstLayoutAntigo);
+        intent.putExtra("recEstScrollY",recEstScrollY);
         startActivity(intent);
     }
     //Adicionar e subtrair kilos
@@ -847,6 +857,7 @@ public class Produtos extends AppCompatActivity {
         }
         return null;
     }
+
     public void AnimarClickPermanente(ImageView img){
         ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",0.5f);
         objImagem.setDuration(80);
@@ -862,11 +873,11 @@ public class Produtos extends AppCompatActivity {
         bouncer.play(objImagem2).after(objImagem);
         bouncer.start();
     }
-
     public Integer getIdLayout() {
         return idLayout;
     }
     public String getLayoutAtivo() {
         return layoutAtivo;
     }
+
 }

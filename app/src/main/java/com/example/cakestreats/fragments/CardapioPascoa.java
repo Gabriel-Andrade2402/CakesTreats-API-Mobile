@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.example.cakestreats.R;
 
@@ -63,5 +64,9 @@ public class CardapioPascoa extends Fragment {
                              Bundle savedInstanceState) {
         layoutView=inflater.inflate(R.layout.fragment_cardapio_pascoa, container, false);
         return layoutView;
+    }
+
+    public FrameLayout getLayoutView() {
+        return (FrameLayout) layoutView;
     }
 }

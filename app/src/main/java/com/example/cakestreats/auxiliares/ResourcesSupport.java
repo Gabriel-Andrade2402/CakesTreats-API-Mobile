@@ -1,22 +1,22 @@
 package com.example.cakestreats.auxiliares;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 
-import com.example.cakestreats.ManipularDialogos;
 import com.example.cakestreats.R;
+import com.example.cakestreats.dialogos.Produtos;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ResourcesSupport{
     private Resources resources;
@@ -119,20 +119,7 @@ public class ResourcesSupport{
         }
         return null;
     }
-    /*public Integer retornarIdDoLayoutPorTitulo(String titulo){
-        switch (titulo){
-            case "Bolos tipo 1":
-                return R.layout.dialog_bolos;
-            case "Bolos tipo 2":
-                return R.layout.dialog_bolos;
-            case "Bolos tipo 3":
-                return R.layout.dialog_bolos;
-            case "Bolos tipo 4":
-                return R.layout.dialog_bolos;
 
-        }
-        return null;
-    } */
     public List<String> retornarListaDeSaboresPorTitulo(String titulo){
         switch (titulo){
             case "Bolos tipo 1":
@@ -173,4 +160,99 @@ public class ResourcesSupport{
         return null;
     }
 
+    //Criar produtos
+    public Produtos recuperarProduto(String titulo){
+        switch (titulo){
+            case "Bolos tipo 1":
+                return new Produtos(R.layout.activity_produtos,"Bolos tipo 1");
+            case "Bolos tipo 2":
+                return new Produtos(R.layout.activity_produtos,"Bolos tipo 2");
+            case "Bolos tipo 3":
+                return new Produtos(R.layout.activity_produtos_bolo2,"Bolos tipo 3");
+            case "Bolos tipo 4":
+                return new Produtos(R.layout.activity_produtos,"Bolos tipo 4");
+            case "Bolos No Pote":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Bolos No Pote");
+            case "Bombons No Pote":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Bombons No Pote");
+            case "Copo Da Felicidade":
+                return new Produtos(R.layout.activity_produtos_padrao1,"Copo Da Felicidade");
+            case "Pão De Mel":
+                return new Produtos(R.layout.activity_produtos_padrao2,"Pão De Mel");
+            case "Brigadeiro Gourmet":
+                return new Produtos(R.layout.activity_produtos_padrao3,"Brigadeiro Gourmet");
+            case "Taças":
+                return new Produtos(R.layout.activity_produtos_padrao2,"Taças");
+            case "Barra recheada":
+                return new Produtos(R.layout.activity_produtos_padrao4,"Barra recheada");
+            case "Ovo Simples":
+                return new Produtos(R.layout.activity_produtos_pascoa_padrao1,"Ovo Simples");
+            case "Ovo Trufado":
+                return new Produtos(R.layout.activity_produtos_pascoa_padrao1,"Ovo Trufado");
+            case "Ovo De Colher":
+                return new Produtos(R.layout.activity_produtos_pascoa_padrao1,"Ovo De Colher");
+        }
+        return null;
+    }
+    /*Este método é baseado na hierarquia dos XMLS ConstraintsLayouts dos produtos
+    sendo uma má pratica, e deve ser refatorada. a unica finalidade deste método é encotrar
+    onde está o titulo do produto para que o Layout certo seja criado
+     */
+    public TextView retornarTituloDoLayout(ConstraintLayout cl){
+        try{
+            return (TextView)cl.getChildAt(0);
+        }catch (Exception e){
+            ConstraintLayout cons=(ConstraintLayout) cl.getChildAt(1);
+            return (TextView)cons.getChildAt(1);
+        }
+    }
+    /*Este método é baseado na hierarquia dos XMLS ConstraintsLayouts dos produtos
+    sendo uma má pratica, e deve ser refatorada. a unica finalidade deste método é encotrar
+    onde está a imagem preta
+     */
+    public ImageView retornarImagemPretaDoLayout(ConstraintLayout cl){
+        try{
+            return (ImageView) cl.getChildAt(cl.getChildCount()-1);
+        }catch (Exception e){
+            try{
+                ConstraintLayout cons=(ConstraintLayout) cl.getChildAt(1);
+                return (ImageView) cons.getChildAt(cl.getChildCount()-1);
+            }catch (Exception ee){
+
+            }
+        }
+        return null;
+    }
+    //Animando todos Produtos
+    public Produtos ClickProduto(View view) {
+        ConstraintLayout cl=(ConstraintLayout)view;
+        float positionZ=cl.getZ();
+        cl.setZ(1);
+        ImageView img=(ImageView)retornarImagemPretaDoLayout(cl);
+        animarLayoutComZoom(cl,img);
+        cl.setZ(positionZ);
+        TextView tx=retornarTituloDoLayout(cl);
+        Produtos p=recuperarProduto(tx.getText().toString());
+        return p;
+    }
+    //AnimarLayout com zoom
+    public void animarLayoutComZoom(ConstraintLayout cl,ImageView img){
+        ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",1f);
+        objImagem.setDuration(80);
+        ObjectAnimator objLayoutX=ObjectAnimator.ofFloat(cl,"scaleX",1.3f);
+        objLayoutX.setDuration(90);
+        ObjectAnimator objLayoutY=ObjectAnimator.ofFloat(cl,"scaleY",1.3f);
+        objLayoutY.setDuration(90);
+        ObjectAnimator objLayoutXVoltar=ObjectAnimator.ofFloat(cl,"scaleX",1f);
+        objLayoutX.setDuration(90);
+        ObjectAnimator objLayoutYVoltar=ObjectAnimator.ofFloat(cl,"scaleY",1f);
+        objLayoutY.setDuration(90);
+        ObjectAnimator objImagem2= ObjectAnimator.ofFloat(img,"alpha",0f);
+        objImagem.setDuration(80);
+        AnimatorSet bouncer= new AnimatorSet();
+        bouncer.play(objImagem2).after(objImagem);
+        bouncer.play(objLayoutX).with(objLayoutY);
+        bouncer.play(objLayoutXVoltar).with(objLayoutYVoltar).after(objLayoutX);
+        bouncer.start();
+    }
 }

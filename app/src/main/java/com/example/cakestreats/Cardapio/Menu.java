@@ -1,4 +1,4 @@
-package com.example.cakestreats;
+package com.example.cakestreats.Cardapio;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.cakestreats.R;
 import com.example.cakestreats.dialogos.Produtos;
 import com.example.cakestreats.fragments.CardapioBolos;
 import com.example.cakestreats.fragments.CardapioDoces;
@@ -37,19 +38,20 @@ public class Menu {
         bouncer.play(animacaoI).before(animacaoII);
         bouncer.start();
     }
-    public void clickBolos(View view) {
+    public CardapioBolos clickBolos(View view) {
         //removeFragment();
         CardapioBolos cardapioBolos=new CardapioBolos();
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment,cardapioBolos).addToBackStack(null).commit();
-        if(fragmentAtivo!=null){
+        if(view!=null){
             ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
             objectAnimator.setDuration(500);
             objectAnimator.start();
         }
         fragmentAtivo="bolos";
+        return cardapioBolos;
     }
-    public void clickDoces(View view){
+    public CardapioDoces clickDoces(View view){
         //  removeFragment();
         CardapioDoces cardapioDoces=new CardapioDoces();
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
@@ -58,8 +60,9 @@ public class Menu {
         ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
         objectAnimator.setDuration(500);
         objectAnimator.start();
+        return cardapioDoces;
     }
-    public void clickPascoa(View view){
+    public CardapioPascoa clickPascoa(View view){
         //removeFragment();
         CardapioPascoa cardapioPascoa=new CardapioPascoa();
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
@@ -68,6 +71,7 @@ public class Menu {
         ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
         objectAnimator.setDuration(500);
         objectAnimator.start();
+        return cardapioPascoa;
     }
 
     public String getFragmentAtivo() {
