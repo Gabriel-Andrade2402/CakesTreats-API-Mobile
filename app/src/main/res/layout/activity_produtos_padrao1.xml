@@ -17,17 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/balcao_bolo_no_pote" />
 
-    <ImageView
-        android:id="@+id/botaoVoltarProdutos"
-        android:layout_width="78dp"
-        android:layout_height="69dp"
-        android:onClick="voltarCardapio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sinal_voltar" />
-
     <TextView
         android:id="@+id/tituloBoloProdutos"
         android:layout_width="match_parent"
@@ -77,8 +66,9 @@
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
-        android:onClick="escolherTamanho"
+        android:onClick="escolherTamanhoVermelhos"
         android:tag="R$5,00"
+        android:contentDescription="145ml"
         app:layout_constraintEnd_toStartOf="@+id/ml210"
         app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,8 +80,9 @@
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
-        android:onClick="escolherTamanho"
+        android:onClick="escolherTamanhoVermelhos"
         android:tag="R$7,00"
+        android:contentDescription="210ml"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,17 +133,6 @@
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
-
-    <ImageView
-        android:id="@+id/imagemPretaBolo1Voltar"
-        android:layout_width="78dp"
-        android:layout_height="69dp"
-        android:alpha="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fundo_preto_circulo" />
 
     <ImageView
         android:id="@+id/imagemPreta145ml"

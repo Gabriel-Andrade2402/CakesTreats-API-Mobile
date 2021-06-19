@@ -2,30 +2,27 @@ package com.example.cakestreats.Cardapio;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.media.Image;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.example.cakestreats.R;
-import com.example.cakestreats.dialogos.Produtos;
-import com.example.cakestreats.fragments.CardapioBolos;
-import com.example.cakestreats.fragments.CardapioDoces;
-import com.example.cakestreats.fragments.CardapioPascoa;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Menu {
     private String fragmentAtivo;
-    private FragmentManager fragmentManager;
+    private LayoutInflater layoutInflater;
     private Spinner spinner;
-    public Menu(FragmentManager fragmentManager,Spinner spinner){
-        this.fragmentManager=fragmentManager;
+    private FrameLayout frame;
+    public Menu(LayoutInflater layoutInflater, Spinner spinner, FrameLayout fragment, ScrollView scrollView){
+        this.layoutInflater=layoutInflater;
         this.spinner=(Spinner)spinner;
+        frame=fragment;
     }
     //Animação botão "MENU"
     public void clickMenu(View view,ImageView image){
@@ -38,61 +35,41 @@ public class Menu {
         bouncer.play(animacaoI).before(animacaoII);
         bouncer.start();
     }
-    public CardapioBolos clickBolos(View view) {
-        //removeFragment();
-        CardapioBolos cardapioBolos=new CardapioBolos();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment,cardapioBolos).addToBackStack(null).commit();
+    public void clickBolos(View view) {
+        if(fragmentAtivo!=null){
+            frame.removeAllViews();
+        }
+        layoutInflater.inflate(R.layout.fragment_cardapio_bolos,frame);
         if(view!=null){
-            ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
+            ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",20.0f);
             objectAnimator.setDuration(500);
             objectAnimator.start();
         }
         fragmentAtivo="bolos";
-        return cardapioBolos;
     }
-    public CardapioDoces clickDoces(View view){
-        //  removeFragment();
-        CardapioDoces cardapioDoces=new CardapioDoces();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment,cardapioDoces).addToBackStack(null).commit();
+    public void clickDoces(View view){
+        if(fragmentAtivo!=null){
+            frame.removeAllViews();
+        }
+        layoutInflater.inflate(R.layout.fragment_cardapio_doces,frame);
         fragmentAtivo="doces";
-        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
+        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",247.0f);
         objectAnimator.setDuration(500);
         objectAnimator.start();
-        return cardapioDoces;
     }
-    public CardapioPascoa clickPascoa(View view){
-        //removeFragment();
-        CardapioPascoa cardapioPascoa=new CardapioPascoa();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment,cardapioPascoa).addToBackStack(null).commit();
+    public void clickPascoa(View view){
+        if(fragmentAtivo!=null){
+            frame.removeAllViews();
+        }
+        layoutInflater.inflate(R.layout.fragment_cardapio_pascoa,frame);
         fragmentAtivo="pascoa";
-        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
+        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",474.0f);
         objectAnimator.setDuration(500);
         objectAnimator.start();
-        return cardapioPascoa;
     }
 
     public String getFragmentAtivo() {
         return fragmentAtivo;
     }
-    /*
-    public void removeFragment(){
-        FragmentTransaction ft=fragmentManager.beginTransaction();
-        switch (fragmentAtivo){
-            case "CardapioDoces":
-                CardapioDoces fragmentDoces=(CardapioDoces) fragmentManager.findFragmentById(R.id.fragment);
-                ft.remove(fragmentDoces).commit();
-                break;
-            case "CardapioBolos":
-                CardapioBolos fragmentBolos=(CardapioBolos) fragmentManager.findFragmentById(R.id.fragment);
-                ft.remove(fragmentBolos).commit();
-                break;
-            case "CardapioPascoa":
-                CardapioPascoa fragmentPascoa=(CardapioPascoa) fragmentManager.findFragmentById(R.id.fragment);
-                ft.remove(fragmentPascoa).commit();
-                break;
-        }
-    }*/
+
 }

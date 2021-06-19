@@ -8,6 +8,8 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.BundleCompat;
 
 import com.example.cakestreats.R;
 import com.example.cakestreats.auxiliares.ResourcesSupport;
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
 public class ActivityCardapio extends AppCompatActivity {
     private Menu menu;
     private ResourcesSupport resourcesSupport;
+    private Bundle bundle;
     private static String fragmentAtivo="bolos";
 
     @Override
@@ -27,14 +30,24 @@ public class ActivityCardapio extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cardapio);
         resourcesSupport=new ResourcesSupport(getResources());
-        menu=new Menu(getSupportFragmentManager(),findViewById(R.id.linhaMenuSelecionado));
-        if(getIntent().getStringExtra("recEstFragment")!=null){
-            Logger.getLogger(ActivityCardapio.class.getName()).log(Level.WARNING,findViewById(R.id.linearLayoutFragment)
-            .getTag().toString());
+        menu=new Menu(getLayoutInflater(),findViewById(R.id.linhaMenuSelecionado),findViewById(R.id.fragment),
+                findViewById(R.id.linearLayoutFragment));
+        if(savedInstanceState!=null){
+            bundle=savedInstanceState;
+            recuperarEstado();
         }else {
             clickBolos(null);
         }
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("recEstScrollY",findViewById(R.id.linearLayoutFragment).getScrollY());
+        FrameLayout frame=(FrameLayout) findViewById(R.id.linearLayoutFragment).getParent();
+        outState.putString("recEstFragmento",frame.getTag().toString());
+    }
+
     //Clickes Menu Superior
     public void clickBolos(View view) {
         menu.clickBolos(view);
@@ -61,17 +74,21 @@ public class ActivityCardapio extends AppCompatActivity {
         startActivity(intent);
     }
     //Recuperar Estado
-    public void recuperarEstado(String frame){
-        switch (frame){
+    public void recuperarEstado(){
+        switch (bundle.getString("recEstFragmento")){
             case "bolos":
                 menu.clickBolos(findViewById(R.id.button_bolos));
+                findViewById(R.id.linearLayoutFragment).setScrollY(bundle.getInt("recEstScrollY"));
                 break;
             case "doces":
                 menu.clickDoces(findViewById(R.id.button_doces));
+                findViewById(R.id.linearLayoutFragment).setScrollY(bundle.getInt("recEstScrollY"));
                 break;
             case "pascoa":
                 menu.clickPascoa(findViewById(R.id.button_pascoa));
+                findViewById(R.id.linearLayoutFragment).setScrollY(bundle.getInt("recEstScrollY"));
                 break;
         }
+
     }
 }

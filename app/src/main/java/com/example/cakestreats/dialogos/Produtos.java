@@ -36,8 +36,11 @@ public class Produtos extends AppCompatActivity {
     private Integer idLayout;
     private String layoutAtivo;
     private TextView saborSelecionado;
+    private Button adicionarAoCarrinho;
     private TextView cascaSelecionada;
+    private TextView cascaSelecionadaEspecial;
     private ImageView tamanhoSelecionado;
+    private List<Integer> valores;
 
     //Recuperar Estado antigo com botão voltar;
     private String recEstLayoutAntigo;
@@ -113,7 +116,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -122,7 +125,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 1"));
         tituloLayout.setText("Bolos tipo 1");
         precoLayout.setText("R$ 50,00");
-        botao.setText("ADICIONAR AO CARRINHO R$ 50,00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 50,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 1");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -154,7 +157,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -163,7 +166,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 2"));
         tituloLayout.setText("Bolos tipo 2");
         precoLayout.setText("R$ 55,00");
-        botao.setText("ADICIONAR AO CARRINHO R$ 55,00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 55,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -195,7 +198,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -204,7 +207,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 3"));
         tituloLayout.setText("Bolos tipo 3");
         precoLayout.setText("P R$ 15,00    M R$ 16,00   G R$ 25,00");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 3");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -236,7 +239,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -245,7 +248,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 4"));
         tituloLayout.setText("Bolos tipo 4");
         precoLayout.setText("R$ 65,00");
-        botao.setText("ADICIONAR AO CARRINHO R$ 65,00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 65,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -277,7 +280,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -286,7 +289,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos No Pote"));
         tituloLayout.setText("Bolos No Pote");
         precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos No Pote");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -318,7 +321,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -327,7 +330,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bombons No Pote"));
         tituloLayout.setText("Bombons No Pote");
         precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bombons No Pote");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -359,7 +362,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -372,9 +375,11 @@ public class Produtos extends AppCompatActivity {
         ImageView imagemMl590=(ImageView) findViewById(R.id.ml210);
         imagemMl400.setTag("R$ 18,00");
         imagemMl590.setTag("R$ 25,00");
+        imagemMl400.setContentDescription("400ml");
+        imagemMl590.setContentDescription("590ml");
         imagemMl400.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml400_branco,null));
         imagemMl590.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml590_branco,null));
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Copo Da Felicidade");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -406,7 +411,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -415,7 +420,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Pão De Mel"));
         tituloLayout.setText("Pão De Mel");
         precoLayout.setText("R$ 5,00");
-        botao.setText("ADICIONAR AO CARRINHO R$ 5,00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 5,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Pão De Mel");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -447,7 +452,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -456,7 +461,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Brigadeiro Gourmet"));
         tituloLayout.setText("Brigadeiro Gourmet");
         precoLayout.setText("caixa 4u R$ 10,00  caixa 6u R$ 15,00  caixa 9u R$ 20,00  caixa 12u R$ 25,00");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Brigadeiro Gourmet");
         for(String s:listSabores){
             TextView tx=new TextView(this);
@@ -488,7 +493,7 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -497,7 +502,7 @@ public class Produtos extends AppCompatActivity {
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Taças"));
         tituloLayout.setText("Taças");
         precoLayout.setText("R$ 85,00 - R$ 95,00");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Taças1");
         List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Taças2");
         for(String s:listSabores){
@@ -520,7 +525,9 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
-                    botao.setText(botao.getText().subSequence(0,20)+" R$85,00");
+                    valores.add(85);
+                    adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().subSequence(0,20)+" R$"+
+                            String.valueOf(calcTotal())+",00");
                 }
             });
             scrollView.addView(tx);
@@ -545,7 +552,9 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
-                    botao.setText(botao.getText().subSequence(0,20)+" R$95,00");
+                    valores.add(95);
+                    adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().subSequence(0,20)+" R$"+
+                            String.valueOf(calcTotal())+",00");
                 }
             });
             scrollView.addView(tx);
@@ -556,18 +565,26 @@ public class Produtos extends AppCompatActivity {
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
         TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         ResourcesSupport resources=new ResourcesSupport(getResources());
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Barra recheada"));
         tituloLayout.setText("Barra recheada");
         precoLayout.setText("P R$ 15,00  G R$ 25,00");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
     }
 
     private void atualizarOvoSimples(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        ImageView gramas250=(ImageView) findViewById(R.id.gramas250);
+        ImageView gramas350=(ImageView) findViewById(R.id.gramas350);
+        ImageView gramas500=(ImageView) findViewById(R.id.gramas500);
+        ImageView gramas700=(ImageView) findViewById(R.id.gramas700);
+        gramas250.setTag("R$22,00/R$27,00");
+        gramas350.setTag("R$32,00/R$37,00");
+        gramas500.setTag("R$42,00/R$47,00");
+        gramas700.setTag("R$62,00/R$67,00");
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -576,10 +593,11 @@ public class Produtos extends AppCompatActivity {
         ResourcesSupport resources=new ResourcesSupport(getResources());
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Simples"));
         tituloLayout.setText("Ovo Simples");
-        botao.setText("ADICIONAR AO CARRINHO");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Simples");
-        for(String s:listCascas){
+        for(String s:listCascas2){
             TextView tx=new TextView(this);
             tx.setText(s);
             tx.setLayoutParams(params);
@@ -599,6 +617,48 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     cascaSelecionada=tx;
+                    calcularTotalPascoa();
+                }
+            });
+            scrollViewCascas.addView(tx);
+        }
+        for(String s:listCascas){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView tx=(TextView) v;
+                    if(cascaSelecionadaEspecial==null){
+                        tx.setElevation(20f);
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
+                        tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                        tx.setTextColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = tx;
+                    }else{
+                        if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
+                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                            cascaSelecionadaEspecial = null;
+                        }
+                        if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
+                            tx.setElevation(20f);
+                            tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                            tx.setTextColor(Color.parseColor("#FFFAFA"));
+                            cascaSelecionadaEspecial = tx;
+                        }
+                    }
+                    calcularTotalPascoa();
                 }
             });
             scrollViewCascas.addView(tx);
@@ -623,6 +683,7 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
+                    calcularTotalPascoa();
                 }
             });
             scrollViewSabores.addView(tx);
@@ -631,8 +692,16 @@ public class Produtos extends AppCompatActivity {
 
     private void atualizarOvoTrufado(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        ImageView gramas250=(ImageView) findViewById(R.id.gramas250);
+        ImageView gramas350=(ImageView) findViewById(R.id.gramas350);
+        ImageView gramas500=(ImageView) findViewById(R.id.gramas500);
+        ConstraintLayout ct= findViewById(R.id.constraintLayout);
+        ct.removeView(findViewById(R.id.gramas700));
+        gramas250.setTag("R$32,00/R$37,00");
+        gramas350.setTag("R$42,00/R$47,00");
+        gramas500.setTag("R$52,00/R$57,00");
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -641,10 +710,11 @@ public class Produtos extends AppCompatActivity {
         ResourcesSupport resources=new ResourcesSupport(getResources());
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Trufado"));
         tituloLayout.setText("Ovo Trufado");
-        botao.setText("ADICIONAR AO CARRINHO");
-        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
+        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Trufado");
-        for(String s:listCascas){
+        for(String s:listCascas2){
             TextView tx=new TextView(this);
             tx.setText(s);
             tx.setLayoutParams(params);
@@ -664,6 +734,48 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     cascaSelecionada=tx;
+                    calcularTotalPascoa();
+                }
+            });
+            scrollViewCascas.addView(tx);
+        }
+        for(String s:listCascas){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView tx=(TextView) v;
+                    if(cascaSelecionadaEspecial==null){
+                        tx.setElevation(20f);
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
+                        tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                        tx.setTextColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = tx;
+                    }else{
+                        if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
+                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                            cascaSelecionadaEspecial = null;
+                        }
+                        if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
+                            tx.setElevation(20f);
+                            tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                            tx.setTextColor(Color.parseColor("#FFFAFA"));
+                            cascaSelecionadaEspecial = tx;
+                        }
+                    }
+                    calcularTotalPascoa();
                 }
             });
             scrollViewCascas.addView(tx);
@@ -688,6 +800,7 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
+                    calcularTotalPascoa();
                 }
             });
             scrollViewSabores.addView(tx);
@@ -696,8 +809,13 @@ public class Produtos extends AppCompatActivity {
 
     private void atualizarOvoDeColher(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        ImageView gramas350=(ImageView) findViewById(R.id.gramas350);
+        ImageView gramas500=(ImageView) findViewById(R.id.gramas500);
+        ConstraintLayout ct= findViewById(R.id.constraintLayout);
+        ct.removeView(findViewById(R.id.gramas250));
+        ct.removeView(findViewById(R.id.gramas700));
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        Button botao=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
@@ -706,11 +824,12 @@ public class Produtos extends AppCompatActivity {
         ResourcesSupport resources=new ResourcesSupport(getResources());
         imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo De Colher"));
         tituloLayout.setText("Ovo De Colher");
-        botao.setText("ADICIONAR AO CARRINHO");
-        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
+        List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher1");
         List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher2");
-        for(String s:listCascas){
+        for(String s:listCascas2){
             TextView tx=new TextView(this);
             tx.setText(s);
             tx.setLayoutParams(params);
@@ -730,6 +849,48 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     cascaSelecionada=tx;
+                    calcularTotalPascoa();
+                }
+            });
+            scrollViewCascas.addView(tx);
+        }
+        for(String s:listCascas){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView tx=(TextView) v;
+                    if(cascaSelecionadaEspecial==null){
+                        tx.setElevation(20f);
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
+                        tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                        tx.setTextColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = tx;
+                    }else{
+                        if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
+                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                            cascaSelecionadaEspecial = null;
+                        }
+                        if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
+                            tx.setElevation(20f);
+                            tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                            tx.setTextColor(Color.parseColor("#FFFAFA"));
+                            cascaSelecionadaEspecial = tx;
+                        }
+                    }
+                    calcularTotalPascoa();
                 }
             });
             scrollViewCascas.addView(tx);
@@ -754,6 +915,9 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
+                    gramas350.setTag("R$47,00/R$52,00");
+                    gramas500.setTag("R$55,00/R$60,00");
+                    calcularTotalPascoa();
                 }
             });
             Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,s);
@@ -779,6 +943,9 @@ public class Produtos extends AppCompatActivity {
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
                     saborSelecionado=tx;
+                    gramas350.setTag("R$70,00/R$75,00");
+                    gramas500.setTag("R$80,00/R$85,00");
+                    calcularTotalPascoa();
                 }
             });
             scrollViewSabores.addView(tx);
@@ -786,15 +953,46 @@ public class Produtos extends AppCompatActivity {
     }
     //Fim da construção do layout
 
-    //Botão Voltar
-    public void voltarCardapio(View view) {
-        ImageView img=(ImageView)findViewById(R.id.imagemPretaBolo1Voltar);
-        animarClick(img);
-        Intent intent=new Intent(this, ActivityCardapio.class);
-        intent.putExtra("recEstFragment",recEstLayoutAntigo);
-        intent.putExtra("recEstScrollY",recEstScrollY);
-        startActivity(intent);
+
+    private Integer calcTotal(){
+        int total = 0;
+        for(Integer i:valores){
+            total+=i;
+        }
+        return total;
     }
+    public void calcularTotalPascoa(){
+        if(saborSelecionado!=null && cascaSelecionada!=null && tamanhoSelecionado !=null){
+            if(cascaSelecionadaEspecial!=null){
+                int valor=3;
+                String[] precos=tamanhoSelecionado.getTag().toString().split("/");
+                switch (cascaSelecionada.getText().toString()){
+                    case "Casca ao leite":
+                        valor+=Integer.parseInt(precos[0].substring(2,4));
+                        break;
+                    case "Casca branca":
+                        valor+=Integer.parseInt(precos[1].substring(2,4));
+                        break;
+                }
+                adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().toString()
+                        .substring(0,20)+" R$"+valor+",00");
+            }else{
+                int valor=0;
+                String[] precos=tamanhoSelecionado.getTag().toString().split("/");
+                switch (cascaSelecionada.getText().toString()){
+                    case "Casca ao leite":
+                        valor+=Integer.parseInt(precos[0].substring(2,4));
+                        break;
+                    case "Casca branca":
+                        valor+=Integer.parseInt(precos[1].substring(2,4));
+                        break;
+                }
+                adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().toString()
+                        .substring(0,20)+" R$"+valor+",00");
+            }
+        }
+    }
+
     //Adicionar e subtrair kilos
     public void AdicionarKilos(View view) {
         ImageView img=(ImageView)view;
@@ -803,9 +1001,9 @@ public class Produtos extends AppCompatActivity {
         TextView preco=(TextView)findViewById(R.id.precoProdutos);
         int soma=Integer.parseInt(tx.getText().toString())+1;
         tx.setText(String.valueOf(soma));
-        Button botaoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
-        int total=Integer.parseInt(preco.getText().toString().substring(3,5))*soma;
-        botaoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(total)+",00");
+        adicionarAoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
+        valores.add(Integer.parseInt(preco.getText().toString().substring(3,5))*soma);
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(calcTotal())+",00");
     }
     public void SubtrairKilos(View view) {
         ImageView img=(ImageView)view;
@@ -816,13 +1014,12 @@ public class Produtos extends AppCompatActivity {
         if(subtracao==0){tx.setText("1");
         subtracao=1;}else{
         tx.setText(String.valueOf(subtracao));}
-        Button botaoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
-        int total=Integer.parseInt(preco.getText().toString().substring(3,5))*subtracao;
-        botaoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(total)+",00");
+        adicionarAoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
+        valores.add(Integer.parseInt(preco.getText().toString().substring(3,5))*subtracao);
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(calcTotal())+",00");
     }
     //Escolher tamanho
     public void escolherTamanho(View view){
-        Button btAdicionar=findViewById(R.id.botaoAdicionarAoCarrinho);
         ImageView img=(ImageView)view;
         if(tamanhoSelecionado!=null){
             ImageView imagePreta=recuperarImagemPretaParaAnimacao(tamanhoSelecionado);
@@ -831,7 +1028,25 @@ public class Produtos extends AppCompatActivity {
         tamanhoSelecionado=img;
         ImageView imagePreta=recuperarImagemPretaParaAnimacao(view);
         AnimarClickPermanente(imagePreta);
-        btAdicionar.setText("Adicionar ao Carrinho "+img.getTag());
+        adicionarAoCarrinho.setText("Adicionar ao Carrinho "+img.getTag());
+    }
+    public void escolherTamanhoVermelhos(View view){
+        if(tamanhoSelecionado!=null){
+            tamanhoSelecionado.setImageDrawable(recuperarImagemBrancaParaAnimacao(tamanhoSelecionado));
+        }
+        ImageView img=(ImageView)view;
+        tamanhoSelecionado=img;
+        img.setImageDrawable(recuperarImagemVermelhaParaAnimacao(tamanhoSelecionado));
+        adicionarAoCarrinho.setText("Adicionar ao Carrinho "+img.getTag());
+    }
+    public void escolherTamanhoPascoa(View view){
+        if(tamanhoSelecionado!=null){
+            tamanhoSelecionado.setImageDrawable(recuperarImagemBrancaParaAnimacao(tamanhoSelecionado));
+        }
+        ImageView img=(ImageView)view;
+        tamanhoSelecionado=img;
+        img.setImageDrawable(recuperarImagemVermelhaParaAnimacao(tamanhoSelecionado));
+        calcularTotalPascoa();
     }
     //Auxiliar do EscolherTamanho
     public ImageView recuperarImagemPretaParaAnimacao(View view){
@@ -842,22 +1057,71 @@ public class Produtos extends AppCompatActivity {
                 return (ImageView) findViewById(R.id.imagemPretaTamanhoP);
             case R.id.botaoTamanhoM:
                 return (ImageView) findViewById(R.id.imagemPretaTamanhoM);
-            case R.id.ml145:
-                return (ImageView) findViewById(R.id.imagemPreta145ml);
-            case R.id.ml210:
-                return (ImageView) findViewById(R.id.imagemPreta210ml);
-            case R.id.botao4Unidades:
-                return (ImageView) findViewById(R.id.imagemPreta4unidades);
-            case R.id.botao6Unidades:
-                return (ImageView) findViewById(R.id.imagemPreta6unidades);
-            case R.id.botao9Unidades:
-                return (ImageView) findViewById(R.id.imagemPreta9unidades);
-            case R.id.botao12Unidades:
-                return (ImageView) findViewById(R.id.imagemPreta12unidades);
         }
         return null;
     }
-
+    public Drawable recuperarImagemVermelhaParaAnimacao(View view){
+        switch (view.getId()){
+            case R.id.botao4Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades4_vermelho,null);
+            case R.id.botao6Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades6_vermelho,null);
+            case R.id.botao9Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades9_vermelho,null);
+            case R.id.botao12Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades12_vermelho,null);
+            case R.id.gramas250:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas250_preto,null);
+            case R.id.gramas350:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas350_preto,null);
+            case R.id.gramas500:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas500_preto,null);
+            case R.id.gramas700:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas700_preto,null);
+        }
+        switch (view.getContentDescription().toString()){
+            case "145ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml145_vermelho,null);
+            case "210ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml210_vermelho,null);
+            case "400ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml400_vermelho,null);
+            case "590ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml590_vermelho,null);
+        }
+        return null;
+    }
+    public Drawable recuperarImagemBrancaParaAnimacao(View view){
+        switch (view.getId()){
+            case R.id.botao4Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades4_branco,null);
+            case R.id.botao6Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades6_branco,null);
+            case R.id.botao9Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades9_branco,null);
+            case R.id.botao12Unidades:
+                return (Drawable) getResources().getDrawable(R.drawable.unidades12_branco,null);
+            case R.id.gramas250:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas250_branco,null);
+            case R.id.gramas350:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas350_branco,null);
+            case R.id.gramas500:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas500_branco,null);
+            case R.id.gramas700:
+                return (Drawable) getResources().getDrawable(R.drawable.gramas700_branco,null);
+        }
+        switch (view.getContentDescription().toString()){
+            case "145ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml145_branco,null);
+            case "210ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml210_branco,null);
+            case "400ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml400_branco,null);
+            case "590ml":
+                return (Drawable) getResources().getDrawable(R.drawable.ml590_branco,null);
+        }
+        return null;
+    }
     public void AnimarClickPermanente(ImageView img){
         ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",0.5f);
         objImagem.setDuration(80);
@@ -879,5 +1143,4 @@ public class Produtos extends AppCompatActivity {
     public String getLayoutAtivo() {
         return layoutAtivo;
     }
-
 }

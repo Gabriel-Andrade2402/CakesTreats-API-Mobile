@@ -17,17 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/balcao_bolo_no_pote" />
 
-    <ImageView
-        android:id="@+id/botaoVoltarProdutos"
-        android:layout_width="78dp"
-        android:layout_height="69dp"
-        android:onClick="voltarCardapio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sinal_voltar" />
-
     <TextView
         android:id="@+id/tituloBoloProdutos"
         android:layout_width="match_parent"
@@ -77,7 +66,7 @@
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
-        android:onClick="escolherTamanho"
+        android:onClick="escolherTamanhoVermelhos"
         android:tag="R$10,00"
         app:layout_constraintEnd_toStartOf="@+id/botao6Unidades"
         app:layout_constraintHorizontal_bias="0.572"
@@ -90,7 +79,7 @@
         android:layout_width="55dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
-        android:onClick="escolherTamanho"
+        android:onClick="escolherTamanhoVermelhos"
         android:tag="R$15,00"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.404"
@@ -105,7 +94,7 @@
         android:layout_height="47dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="4dp"
-        android:onClick="escolherTamanho"
+        android:onClick="escolherTamanhoVermelhos"
         android:tag="R$20,00"
         app:layout_constraintStart_toEndOf="@+id/botao6Unidades"
         app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
@@ -117,7 +106,7 @@
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
-        android:onClick="escolherTamanho"
+        android:onClick="escolherTamanhoVermelhos"
         android:tag="R$25,00"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
@@ -172,62 +161,5 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <!--Imagens pretas para animação-->
-    <ImageView
-        android:id="@+id/imagemPretaBolo1Voltar"
-        android:layout_width="78dp"
-        android:layout_height="69dp"
-        android:alpha="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fundo_preto_circulo" />
-
-    <ImageView
-        android:id="@+id/imagemPreta4unidades"
-        android:layout_width="55dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="4dp"
-        android:alpha="0"
-        app:layout_constraintEnd_toStartOf="@+id/botao6Unidades"
-        app:layout_constraintHorizontal_bias="0.572"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
-        app:srcCompat="@drawable/fundo_preto_circulo" />
-
-    <ImageView
-        android:id="@+id/imagemPreta6unidades"
-        android:layout_width="55dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="4dp"
-        android:alpha="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
-        app:srcCompat="@drawable/fundo_preto_circulo" />
-
-    <ImageView
-        android:id="@+id/imagemPreta9unidades"
-        android:layout_width="55dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="4dp"
-        android:alpha="0"
-        app:layout_constraintStart_toEndOf="@+id/botao6Unidades"
-        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
-        app:srcCompat="@drawable/fundo_preto_circulo" />
-
-    <ImageView
-        android:id="@+id/imagemPreta12unidades"
-        android:layout_width="55dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="4dp"
-        android:alpha="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toEndOf="@+id/botao9Unidades"
-        app:layout_constraintTop_toBottomOf="@+id/TamanhoBolo"
-        app:srcCompat="@drawable/fundo_preto_circulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
