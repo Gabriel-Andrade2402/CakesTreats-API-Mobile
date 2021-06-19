@@ -1,8 +1,12 @@
 package com.example.cakestreats.Cardapio;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 
@@ -71,7 +75,7 @@ public class ActivityCardapio extends AppCompatActivity {
         FrameLayout frameLayout=(FrameLayout) findViewById(R.id.linearLayoutFragment).getParent();
         intent.putExtra("recEstFragment",String.valueOf(frameLayout.getTag()));
         intent.putExtra("recEstScrollY",String.valueOf(findViewById(R.id.linearLayoutFragment).getScrollY()));
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
     //Recuperar Estado
     public void recuperarEstado(){

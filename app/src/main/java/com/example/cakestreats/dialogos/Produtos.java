@@ -14,7 +14,10 @@ import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -54,6 +57,9 @@ public class Produtos extends AppCompatActivity {
     public Produtos(){}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        getWindow().setExitTransition(new Fade());
+        getWindow().setEnterTransition(new Explode());
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         Intent in=getIntent();
@@ -112,6 +118,7 @@ public class Produtos extends AppCompatActivity {
         }
     }
 
+    //proximo a refatorar
     public void atualizarBolos1(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
@@ -127,30 +134,19 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("R$ 50,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 50,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 1");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
     }
 
     private void atualizarBolos2() {
@@ -168,30 +164,19 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("R$ 55,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 55,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
     }
 
     private void atualizarBolos3() {
@@ -209,30 +194,19 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("P R$ 15,00    M R$ 16,00   G R$ 25,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 3");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
     }
 
     private void atualizarBolos4() {
@@ -250,30 +224,19 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("R$ 65,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 65,00");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,20,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
     }
 
     private void atualizarBolosDePote(){
@@ -291,30 +254,19 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos No Pote");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
     }
 
     private void atualizarBombonsNoPote(){
@@ -332,30 +284,49 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bombons No Pote");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
+    }
+
+    private void atualizarBrigadeiroGourmet(){
+        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
+        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
+        ResourcesSupport resources=new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Brigadeiro Gourmet"));
+        tituloLayout.setText("Brigadeiro Gourmet");
+        precoLayout.setText("caixa 4u R$ 10,00  caixa 6u R$ 15,00  caixa 9u R$ 20,00  caixa 12u R$ 25,00");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
+        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Brigadeiro Gourmet");
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+            }
+        });
     }
 
     private void atualizarCopoDaFelicidade(){
@@ -448,47 +419,6 @@ public class Produtos extends AppCompatActivity {
         }
     }
 
-    private void atualizarBrigadeiroGourmet(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
-        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        params.setMarginEnd(4);
-        LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Brigadeiro Gourmet"));
-        tituloLayout.setText("Brigadeiro Gourmet");
-        precoLayout.setText("caixa 4u R$ 10,00  caixa 6u R$ 15,00  caixa 9u R$ 20,00  caixa 12u R$ 25,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Brigadeiro Gourmet");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                }
-            });
-            scrollView.addView(tx);
-        }
-    }
-
     private void atualizarTacas(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
@@ -505,62 +435,125 @@ public class Produtos extends AppCompatActivity {
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Taças1");
         List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Taças2");
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                    valores.add(85);
-                    adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().subSequence(0,20)+" R$"+
-                            String.valueOf(calcTotal())+",00");
-                }
-            });
-            scrollView.addView(tx);
-        }
-        for(String s:listSabores2){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                    valores.add(95);
-                    adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().subSequence(0,20)+" R$"+
-                            String.valueOf(calcTotal())+",00");
-                }
-            });
-            scrollView.addView(tx);
-        }
+        preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+                valores.add(85);
+                adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().subSequence(0,20)+" R$"+
+                        String.valueOf(calcTotal())+",00");
+            }
+        });
+        preencherLinearLayout(listSabores2,scrollView,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+                valores.add(95);
+                adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().subSequence(0,20)+" R$"+
+                        String.valueOf(calcTotal())+",00");
+            }
+        });
     }
 
+    private void atualizarOvoSimples() {
+        ImageView imageViewLayout = (ImageView) findViewById(R.id.imagemBoloProdutos);
+        ImageView gramas250 = (ImageView) findViewById(R.id.gramas250);
+        ImageView gramas350 = (ImageView) findViewById(R.id.gramas350);
+        ImageView gramas500 = (ImageView) findViewById(R.id.gramas500);
+        ImageView gramas700 = (ImageView) findViewById(R.id.gramas700);
+        gramas250.setTag("R$22,00/R$27,00");
+        gramas350.setTag("R$32,00/R$37,00");
+        gramas500.setTag("R$42,00/R$47,00");
+        gramas700.setTag("R$62,00/R$67,00");
+        TextView tituloLayout = (TextView) findViewById(R.id.tituloBoloProdutos);
+        adicionarAoCarrinho = (Button) findViewById(R.id.botaoAdicionarAoCarrinho);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        LinearLayout scrollViewCascas = (LinearLayout) findViewById(R.id.LinearLayoutCascas);
+        LinearLayout scrollViewSabores = (LinearLayout) findViewById(R.id.linearLayoutSabores);
+        ResourcesSupport resources = new ResourcesSupport(getResources());
+        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Simples"));
+        tituloLayout.setText("Ovo Simples");
+        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
+        List<String> listCascas = resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listCascas2 = resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listSabores = resources.retornarListaDeSaboresPorTitulo("Ovo Simples");
+        preencherLinearLayout(listCascas2, scrollViewCascas, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cascaSelecionada != null) {
+                    cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
+                    cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }
+                TextView tx = (TextView) v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                cascaSelecionada = tx;
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listCascas, scrollViewCascas, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tx = (TextView) v;
+                if (cascaSelecionadaEspecial == null) {
+                    tx.setElevation(20f);
+                    Logger.getLogger(Produtos.class.getName()).log(Level.WARNING, "Entrou else");
+                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                    tx.setTextColor(Color.parseColor("#FFFAFA"));
+                    cascaSelecionadaEspecial = tx;
+                } else {
+                    if (cascaSelecionadaEspecial != null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                        cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING, "Entrou if 1");
+                        cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = null;
+                    }
+                    if (cascaSelecionadaEspecial != null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                        cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                        cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING, "Entrou if 2");
+                        tx.setElevation(20f);
+                        tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                        tx.setTextColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = tx;
+                    }
+                }
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listSabores, scrollViewSabores, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (saborSelecionado != null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }
+                TextView tx = (TextView) v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado = tx;
+                calcularTotalPascoa();
+            }
+        });
+    }
     private void atualizarBarraRecheada(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
@@ -572,124 +565,6 @@ public class Produtos extends AppCompatActivity {
         precoLayout.setText("P R$ 15,00  G R$ 25,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
     }
-
-    private void atualizarOvoSimples(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        ImageView gramas250=(ImageView) findViewById(R.id.gramas250);
-        ImageView gramas350=(ImageView) findViewById(R.id.gramas350);
-        ImageView gramas500=(ImageView) findViewById(R.id.gramas500);
-        ImageView gramas700=(ImageView) findViewById(R.id.gramas700);
-        gramas250.setTag("R$22,00/R$27,00");
-        gramas350.setTag("R$32,00/R$37,00");
-        gramas500.setTag("R$42,00/R$47,00");
-        gramas700.setTag("R$62,00/R$67,00");
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        params.setMarginEnd(4);
-        LinearLayout scrollViewCascas=(LinearLayout) findViewById(R.id.LinearLayoutCascas);
-        LinearLayout scrollViewSabores=(LinearLayout) findViewById(R.id.linearLayoutSabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Simples"));
-        tituloLayout.setText("Ovo Simples");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
-        List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Simples");
-        for(String s:listCascas2){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(cascaSelecionada!=null) {
-                        cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
-                        cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    cascaSelecionada=tx;
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewCascas.addView(tx);
-        }
-        for(String s:listCascas){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    TextView tx=(TextView) v;
-                    if(cascaSelecionadaEspecial==null){
-                        tx.setElevation(20f);
-                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
-                        tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                        tx.setTextColor(Color.parseColor("#FFFAFA"));
-                        cascaSelecionadaEspecial = tx;
-                    }else{
-                        if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
-                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
-                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
-                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                            cascaSelecionadaEspecial = null;
-                        }
-                        if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
-                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
-                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
-                            tx.setElevation(20f);
-                            tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                            tx.setTextColor(Color.parseColor("#FFFAFA"));
-                            cascaSelecionadaEspecial = tx;
-                        }
-                    }
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewCascas.addView(tx);
-        }
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewSabores.addView(tx);
-        }
-    }
-
     private void atualizarOvoTrufado(){
         ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         ImageView gramas250=(ImageView) findViewById(R.id.gramas250);
@@ -714,97 +589,64 @@ public class Produtos extends AppCompatActivity {
         List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
         List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Trufado");
-        for(String s:listCascas2){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(cascaSelecionada!=null) {
-                        cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
-                        cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
+        preencherLinearLayout(listCascas2,scrollViewCascas,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cascaSelecionada!=null) {
+                    cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
+                    cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                cascaSelecionada=tx;
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listCascas,scrollViewCascas,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tx=(TextView) v;
+                if(cascaSelecionadaEspecial==null){
                     tx.setElevation(20f);
+                    Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    cascaSelecionada=tx;
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewCascas.addView(tx);
-        }
-        for(String s:listCascas){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    TextView tx=(TextView) v;
-                    if(cascaSelecionadaEspecial==null){
+                    cascaSelecionadaEspecial = tx;
+                }else{
+                    if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                        cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
+                        cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = null;
+                    }
+                    if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                        cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                        cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
                         tx.setElevation(20f);
-                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
                         tx.setBackgroundColor(Color.parseColor("#8B4513"));
                         tx.setTextColor(Color.parseColor("#FFFAFA"));
                         cascaSelecionadaEspecial = tx;
-                    }else{
-                        if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
-                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
-                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
-                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                            cascaSelecionadaEspecial = null;
-                        }
-                        if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
-                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
-                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
-                            tx.setElevation(20f);
-                            tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                            tx.setTextColor(Color.parseColor("#FFFAFA"));
-                            cascaSelecionadaEspecial = tx;
-                        }
                     }
-                    calcularTotalPascoa();
                 }
-            });
-            scrollViewCascas.addView(tx);
-        }
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewSabores.addView(tx);
-        }
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listSabores,scrollViewSabores,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+                calcularTotalPascoa();
+            }
+        });
     }
 
     private void atualizarOvoDeColher(){
@@ -829,131 +671,102 @@ public class Produtos extends AppCompatActivity {
         List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
         List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher1");
         List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher2");
-        for(String s:listCascas2){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(cascaSelecionada!=null) {
-                        cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
-                        cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
+        preencherLinearLayout(listCascas2,scrollViewCascas,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cascaSelecionada!=null) {
+                    cascaSelecionada.setTextColor(Color.parseColor("#4F4F4F"));
+                    cascaSelecionada.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                cascaSelecionada=tx;
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listCascas,scrollViewCascas,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tx=(TextView) v;
+                if(cascaSelecionadaEspecial==null){
                     tx.setElevation(20f);
+                    Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
                     tx.setBackgroundColor(Color.parseColor("#8B4513"));
                     tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    cascaSelecionada=tx;
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewCascas.addView(tx);
-        }
-        for(String s:listCascas){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    TextView tx=(TextView) v;
-                    if(cascaSelecionadaEspecial==null){
+                    cascaSelecionadaEspecial = tx;
+                }else{
+                    if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                        cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
+                        cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                        cascaSelecionadaEspecial = null;
+                    }
+                    if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
+                        cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
+                        cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
                         tx.setElevation(20f);
-                        Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou else");
                         tx.setBackgroundColor(Color.parseColor("#8B4513"));
                         tx.setTextColor(Color.parseColor("#FFFAFA"));
                         cascaSelecionadaEspecial = tx;
-                    }else{
-                        if(cascaSelecionadaEspecial!=null && cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
-                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
-                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 1");
-                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                            cascaSelecionadaEspecial = null;
-                        }
-                        if(cascaSelecionadaEspecial!=null && !cascaSelecionadaEspecial.getText().toString().equals(tx.getText().toString())) {
-                            cascaSelecionadaEspecial.setTextColor(Color.parseColor("#4F4F4F"));
-                            cascaSelecionadaEspecial.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,"Entrou if 2");
-                            tx.setElevation(20f);
-                            tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                            tx.setTextColor(Color.parseColor("#FFFAFA"));
-                            cascaSelecionadaEspecial = tx;
-                        }
                     }
-                    calcularTotalPascoa();
                 }
-            });
-            scrollViewCascas.addView(tx);
-        }
-        for(String s:listSabores){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                    gramas350.setTag("R$47,00/R$52,00");
-                    gramas500.setTag("R$55,00/R$60,00");
-                    calcularTotalPascoa();
-                }
-            });
-            Logger.getLogger(Produtos.class.getName()).log(Level.WARNING,s);
-            scrollViewSabores.addView(tx);
-        }
-        for(String s:listSabores2){
-            TextView tx=new TextView(this);
-            tx.setText(s);
-            tx.setLayoutParams(params);
-            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
-            tx.setPadding(15,15,15,15);
-            tx.setTextSize(20);
-            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            tx.setTextColor(Color.parseColor("#4F4F4F"));
-            tx.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(saborSelecionado!=null) {
-                        saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
-                        saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
-                    }TextView tx=(TextView)v;
-                    tx.setElevation(20f);
-                    tx.setBackgroundColor(Color.parseColor("#8B4513"));
-                    tx.setTextColor(Color.parseColor("#FFFAFA"));
-                    saborSelecionado=tx;
-                    gramas350.setTag("R$70,00/R$75,00");
-                    gramas500.setTag("R$80,00/R$85,00");
-                    calcularTotalPascoa();
-                }
-            });
-            scrollViewSabores.addView(tx);
-        }
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listSabores,scrollViewSabores,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+                gramas350.setTag("R$47,00/R$52,00");
+                gramas500.setTag("R$55,00/R$60,00");
+                calcularTotalPascoa();
+            }
+        });
+        preencherLinearLayout(listSabores2,scrollViewSabores,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(saborSelecionado!=null) {
+                    saborSelecionado.setTextColor(Color.parseColor("#4F4F4F"));
+                    saborSelecionado.setBackgroundColor(Color.parseColor("#FFFAFA"));
+                }TextView tx=(TextView)v;
+                tx.setElevation(20f);
+                tx.setBackgroundColor(Color.parseColor("#8B4513"));
+                tx.setTextColor(Color.parseColor("#FFFAFA"));
+                saborSelecionado=tx;
+                gramas350.setTag("R$70,00/R$75,00");
+                gramas500.setTag("R$80,00/R$85,00");
+                calcularTotalPascoa();
+            }
+        });
     }
     //Fim da construção do layout
 
-
+    private void preencherLinearLayout(List<String> list, LinearLayout linear, View.OnClickListener on){
+        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
+        for(String s:list){
+            TextView tx=new TextView(this);
+            tx.setText(s);
+            tx.setLayoutParams(params);
+            tx.setBackgroundColor(Color.parseColor("#FFFAFA"));
+            tx.setPadding(15,15,15,15);
+            tx.setTextSize(20);
+            tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tx.setTextColor(Color.parseColor("#4F4F4F"));
+            tx.setOnClickListener(on);
+            linear.addView(tx);
+        }
+    }
     private Integer calcTotal(){
         int total = 0;
         for(Integer i:valores){
