@@ -33,7 +33,7 @@ public class ActivityCardapio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cardapio);
-        resourcesSupport=new ResourcesSupport(getResources());
+        resourcesSupport=ResourcesSupport.getInstance(getResources());
         menu=new Menu(getLayoutInflater(),findViewById(R.id.linhaMenuSelecionado),findViewById(R.id.fragment),
                 findViewById(R.id.linearLayoutFragment));
         if(savedInstanceState!=null){

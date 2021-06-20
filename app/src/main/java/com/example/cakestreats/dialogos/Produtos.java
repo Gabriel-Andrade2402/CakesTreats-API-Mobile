@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.cakestreats.Builder.BuilderProduct;
 import com.example.cakestreats.R;
+import com.example.cakestreats.auxiliares.ModelProducts;
 import com.example.cakestreats.auxiliares.ResourcesSupport;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ import java.util.logging.Logger;
 public class Produtos extends AppCompatActivity {
     private Integer idLayout;
     private String layoutAtivo;
+    private ResourcesSupport resourcesSupport=ResourcesSupport.getInstance(null);
     private TextView saborSelecionado;
     private Button adicionarAoCarrinho;
     private TextView cascaSelecionada;
@@ -113,7 +115,6 @@ public class Produtos extends AppCompatActivity {
 
     public void atualizarBolos1(){
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 1","R$ 50,00");
         builder.show();
@@ -138,7 +139,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolos2() {
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 2","R$ 55,00");
@@ -164,7 +164,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolos3() {
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 3"
@@ -191,7 +190,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolos4() {
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 4"
@@ -218,7 +216,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolosDePote(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos No Pote"
@@ -245,7 +242,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBombonsNoPote(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bombons No Pote"
@@ -272,7 +268,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBrigadeiroGourmet(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Brigadeiro Gourmet"
@@ -299,7 +294,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarCopoDaFelicidade(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Copo Da Felicidade"
@@ -346,7 +340,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarPaoDeMel(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Pão De Mel"
@@ -385,7 +378,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarTacas(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Taças"
@@ -438,7 +430,6 @@ public class Produtos extends AppCompatActivity {
         gramas350.setTag("R$32,00/R$37,00");
         gramas500.setTag("R$42,00/R$47,00");
         gramas700.setTag("R$62,00/R$67,00");
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Ovo Simples"
@@ -515,7 +506,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBarraRecheada(){
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Barra recheada"
@@ -535,7 +525,6 @@ public class Produtos extends AppCompatActivity {
         gramas250.setTag("R$32,00/R$37,00");
         gramas350.setTag("R$42,00/R$47,00");
         gramas500.setTag("R$52,00/R$57,00");
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Ovo Trufado"
@@ -615,7 +604,6 @@ public class Produtos extends AppCompatActivity {
         ConstraintLayout ct= findViewById(R.id.constraintLayout);
         ct.removeView(findViewById(R.id.gramas250));
         ct.removeView(findViewById(R.id.gramas700));
-        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
         BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
                 ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Ovo De Colher"
@@ -734,35 +722,8 @@ public class Produtos extends AppCompatActivity {
         return total;
     }
     public void calcularTotalPascoa(){
-        if(saborSelecionado!=null && cascaSelecionada!=null && tamanhoSelecionado !=null){
-            if(cascaSelecionadaEspecial!=null){
-                int valor=3;
-                String[] precos=tamanhoSelecionado.getTag().toString().split("/");
-                switch (cascaSelecionada.getText().toString()){
-                    case "Casca ao leite":
-                        valor+=Integer.parseInt(precos[0].substring(2,4));
-                        break;
-                    case "Casca branca":
-                        valor+=Integer.parseInt(precos[1].substring(2,4));
-                        break;
-                }
-                adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().toString()
-                        .substring(0,20)+" R$"+valor+",00");
-            }else{
-                int valor=0;
-                String[] precos=tamanhoSelecionado.getTag().toString().split("/");
-                switch (cascaSelecionada.getText().toString()){
-                    case "Casca ao leite":
-                        valor+=Integer.parseInt(precos[0].substring(2,4));
-                        break;
-                    case "Casca branca":
-                        valor+=Integer.parseInt(precos[1].substring(2,4));
-                        break;
-                }
-                adicionarAoCarrinho.setText(adicionarAoCarrinho.getText().toString()
-                        .substring(0,20)+" R$"+valor+",00");
-            }
-        }
+        ModelProducts.calcularTotalPascoa(cascaSelecionada,cascaSelecionadaEspecial,tamanhoSelecionado
+                ,saborSelecionado,adicionarAoCarrinho);
     }
 
     //Adicionar e subtrair kilos
@@ -773,7 +734,6 @@ public class Produtos extends AppCompatActivity {
         TextView preco=(TextView)findViewById(R.id.precoProdutos);
         int soma=Integer.parseInt(tx.getText().toString())+1;
         tx.setText(String.valueOf(soma));
-        adicionarAoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(Integer.parseInt(preco.getText().toString().substring(3,5))*soma)+",00");
     }
     public void SubtrairKilos(View view) {
@@ -785,7 +745,6 @@ public class Produtos extends AppCompatActivity {
         if(subtracao==0){tx.setText("1");
         subtracao=1;}else{
         tx.setText(String.valueOf(subtracao));}
-        adicionarAoCarrinho=findViewById(R.id.botaoAdicionarAoCarrinho);
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ "+String.valueOf(Integer.parseInt(preco.getText().toString().substring(3,5))*subtracao)+",00");
     }
     //Escolher tamanho
@@ -818,7 +777,9 @@ public class Produtos extends AppCompatActivity {
         img.setImageDrawable(recuperarImagemVermelhaParaAnimacao(tamanhoSelecionado));
         calcularTotalPascoa();
     }
-    //Auxiliar do EscolherTamanho
+
+
+    //Auxiliares do EscolherTamanho e animações
     public ImageView recuperarImagemPretaParaAnimacao(View view){
         switch (view.getId()){
             case R.id.botaoTamanhoG:
@@ -897,7 +858,6 @@ public class Produtos extends AppCompatActivity {
         objImagem.setDuration(80);
         objImagem.start();
     }
-    //Animar Cliques
     public void animarClick(ImageView img){
         ObjectAnimator objImagem= ObjectAnimator.ofFloat(img,"alpha",0.3f);
         objImagem.setDuration(80);

@@ -66,8 +66,10 @@ public class ResourcesSupport{
             "Rafaello","Doce de leite com amendoim","Brigadeiro de chocolate belga","Oreo e M&Ms","Recheio da felicidade(Uma camada brigadeiro" +
             " tradicional,brigadeiro de leite ninho,nutella,geleia de morango e chantininho)"};
     private String[] saboresOvoTrufado={"sabor1","sabor2","sabor3"};
+
+    public static ResourcesSupport instance;
     //Construtor
-    public ResourcesSupport(Resources res){
+    private ResourcesSupport(Resources res){
         resources=res;
         imagemDialogBolo1=ResourcesCompat.getDrawable(res,R.drawable.balcao_bolo1,null);
         imagemDialogBolo2=ResourcesCompat.getDrawable(res,R.drawable.balcao_bolo2,null);
@@ -83,6 +85,12 @@ public class ResourcesSupport{
         imagemDialogoOvoDeColher=ResourcesCompat.getDrawable(res,R.drawable.ovo_de_colher,null);
         imagemDialogoOvoSimples=ResourcesCompat.getDrawable(res,R.drawable.ovo_simples,null);
         imagemDialogoOvoTrufado=ResourcesCompat.getDrawable(res,R.drawable.ovo_trufado,null);
+    }
+    public static ResourcesSupport getInstance(Resources res){
+        if(instance==null && res!=null){
+            instance=new ResourcesSupport(res);
+        }
+        return instance;
     }
 
     //Retorno das imagens
