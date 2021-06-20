@@ -34,8 +34,8 @@
 
                 <ImageView
                     android:id="@+id/imagemDocesBolosDePote"
-                    android:layout_width="210dp"
-                    android:layout_height="213dp"
+                    android:layout_width="206dp"
+                    android:layout_height="174dp"
                     android:elevation="5dp"
                     android:src="@drawable/bolo_no_pote"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -76,8 +76,8 @@
 
                     <TextView
                         android:id="@+id/tituloDocesBolosDePote"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="221dp"
+                        android:layout_height="64dp"
                         android:elevation="10dp"
                         android:fontFamily="@font/changa_medium"
                         android:padding="9dp"
@@ -88,8 +88,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0" />
+                        app:layout_constraintTop_toTopOf="@+id/fundoPreto"
+                        app:layout_constraintVertical_bias="0.791" />
 
                     <ImageView
                         android:id="@+id/fundoPreto"

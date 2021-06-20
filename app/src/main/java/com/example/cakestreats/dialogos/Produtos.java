@@ -1,9 +1,7 @@
 package com.example.cakestreats.dialogos;
 
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.BundleCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.animation.AnimatorSet;
@@ -11,8 +9,6 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.transition.Explode;
 import android.transition.Fade;
@@ -23,16 +19,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.cakestreats.Cardapio.ActivityCardapio;
-import com.example.cakestreats.MainActivity;
+import com.example.cakestreats.Builder.BuilderProduct;
 import com.example.cakestreats.R;
 import com.example.cakestreats.auxiliares.ResourcesSupport;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -120,20 +112,16 @@ public class Produtos extends AppCompatActivity {
     }
 
     public void atualizarBolos1(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 1","R$ 50,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 1"));
-        tituloLayout.setText("Bolos tipo 1");
-        precoLayout.setText("R$ 50,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 50,00");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 1");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Bolos tipo 1");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,20 +138,16 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolos2() {
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 2","R$ 55,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 2"));
-        tituloLayout.setText("Bolos tipo 2");
-        precoLayout.setText("R$ 55,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 55,00");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,20 +164,17 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolos3() {
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 3"
+                ,"P R$ 15,00    M R$ 16,00   G R$ 25,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 3"));
-        tituloLayout.setText("Bolos tipo 3");
-        precoLayout.setText("P R$ 15,00    M R$ 16,00   G R$ 25,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 3");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Bolos tipo 3");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -210,20 +191,17 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolos4() {
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos tipo 4"
+                ,"R$ 65,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos tipo 4"));
-        tituloLayout.setText("Bolos tipo 4");
-        precoLayout.setText("R$ 65,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 65,00");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos tipo 2");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Bolos tipo 4");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -240,20 +218,17 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBolosDePote(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bolos No Pote"
+                ,"145ml R$ 5,00 210ml R$7,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bolos No Pote"));
-        tituloLayout.setText("Bolos No Pote");
-        precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bolos No Pote");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Bolos No Pote");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -270,20 +245,17 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBombonsNoPote(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Bombons No Pote"
+                ,"145ml R$ 5,00 210ml R$7,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Bombons No Pote"));
-        tituloLayout.setText("Bombons No Pote");
-        precoLayout.setText("145ml R$ 5,00 210ml R$7,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Bombons No Pote");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Bombons No Pote");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -300,20 +272,17 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBrigadeiroGourmet(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Brigadeiro Gourmet"
+                ,"caixa 4u R$ 10,00  caixa 6u R$ 15,00  caixa 9u R$ 20,00  caixa 12u R$ 25,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Brigadeiro Gourmet"));
-        tituloLayout.setText("Brigadeiro Gourmet");
-        precoLayout.setText("caixa 4u R$ 10,00  caixa 6u R$ 15,00  caixa 9u R$ 20,00  caixa 12u R$ 25,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Brigadeiro Gourmet");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Brigadeiro Gourmet");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -330,18 +299,16 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarCopoDaFelicidade(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Copo Da Felicidade"
+                ,"400ml R$ 18,00 590ml R$25,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Copo Da Felicidade"));
-        tituloLayout.setText("Copo Da Felicidade");
-        precoLayout.setText("400ml R$ 18,00 590ml R$25,00");
         ImageView imagemMl400=(ImageView) findViewById(R.id.ml145);
         ImageView imagemMl590=(ImageView) findViewById(R.id.ml210);
         imagemMl400.setTag("R$ 18,00");
@@ -351,7 +318,7 @@ public class Produtos extends AppCompatActivity {
         imagemMl400.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml400_branco,null));
         imagemMl590.setImageDrawable(ResourcesCompat.getDrawable(getResources(),R.drawable.ml590_branco,null));
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Copo Da Felicidade");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Copo Da Felicidade");
         for(String s:listSabores){
             TextView tx=new TextView(this);
             tx.setText(s);
@@ -379,20 +346,18 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarPaoDeMel(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Pão De Mel"
+                ,"R$ 5,00");
+        builder.show();
         LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Pão De Mel"));
-        tituloLayout.setText("Pão De Mel");
-        precoLayout.setText("R$ 5,00");
         adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO R$ 5,00");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Pão De Mel");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Pão De Mel");
         for(String s:listSabores){
             TextView tx=new TextView(this);
             tx.setText(s);
@@ -420,21 +385,16 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarTacas(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        params.setMarginEnd(4);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Taças"
+                ,"R$ 85,00 - R$ 95,00");
+        builder.show();
         LinearLayout scrollView=(LinearLayout) findViewById(R.id.sabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Taças"));
-        tituloLayout.setText("Taças");
-        precoLayout.setText("R$ 85,00 - R$ 95,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Taças1");
-        List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Taças2");
+        //NÃO EXISTE DOIS TIPOS DE TAÇAS, EXISTEM APENAS DOIS TIPOS DE RETORNOS PARA SABORES POR CONTA DOS PREÇOS
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Taças1");
+        List<String> listSabores2=resourcesSupport.retornarListaDeSaboresPorTitulo("Taças2");
         preencherLinearLayout(listSabores,scrollView,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -470,7 +430,6 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarOvoSimples() {
-        ImageView imageViewLayout = (ImageView) findViewById(R.id.imagemBoloProdutos);
         ImageView gramas250 = (ImageView) findViewById(R.id.gramas250);
         ImageView gramas350 = (ImageView) findViewById(R.id.gramas350);
         ImageView gramas500 = (ImageView) findViewById(R.id.gramas500);
@@ -479,20 +438,20 @@ public class Produtos extends AppCompatActivity {
         gramas350.setTag("R$32,00/R$37,00");
         gramas500.setTag("R$42,00/R$47,00");
         gramas700.setTag("R$62,00/R$67,00");
-        TextView tituloLayout = (TextView) findViewById(R.id.tituloBoloProdutos);
-        adicionarAoCarrinho = (Button) findViewById(R.id.botaoAdicionarAoCarrinho);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
+        adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Ovo Simples"
+                ,null);
+        builder.show();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollViewCascas = (LinearLayout) findViewById(R.id.LinearLayoutCascas);
         LinearLayout scrollViewSabores = (LinearLayout) findViewById(R.id.linearLayoutSabores);
-        ResourcesSupport resources = new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Simples"));
-        tituloLayout.setText("Ovo Simples");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listCascas = resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
-        List<String> listCascas2 = resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
-        List<String> listSabores = resources.retornarListaDeSaboresPorTitulo("Ovo Simples");
+        List<String> listCascas = resourcesSupport.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listCascas2 = resourcesSupport.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listSabores = resourcesSupport.retornarListaDeSaboresPorTitulo("Ovo Simples");
         preencherLinearLayout(listCascas2, scrollViewCascas, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -556,19 +515,18 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarBarraRecheada(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
-        TextView precoLayout=(TextView)findViewById(R.id.precoProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Barra recheada"));
-        tituloLayout.setText("Barra recheada");
-        precoLayout.setText("P R$ 15,00  G R$ 25,00");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Barra recheada"
+                ,"P R$ 15,00  G R$ 25,00");
+        builder.show();
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMarginEnd(4);
     }
 
     private void atualizarOvoTrufado(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         ImageView gramas250=(ImageView) findViewById(R.id.gramas250);
         ImageView gramas350=(ImageView) findViewById(R.id.gramas350);
         ImageView gramas500=(ImageView) findViewById(R.id.gramas500);
@@ -577,20 +535,20 @@ public class Produtos extends AppCompatActivity {
         gramas250.setTag("R$32,00/R$37,00");
         gramas350.setTag("R$42,00/R$47,00");
         gramas500.setTag("R$52,00/R$57,00");
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Ovo Trufado"
+                ,null);
+        builder.show();
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollViewCascas=(LinearLayout) findViewById(R.id.LinearLayoutCascas);
         LinearLayout scrollViewSabores=(LinearLayout) findViewById(R.id.linearLayoutSabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo Trufado"));
-        tituloLayout.setText("Ovo Trufado");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
-        List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo Trufado");
+        List<String> listCascas=resourcesSupport.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listCascas2=resourcesSupport.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Ovo Trufado");
         preencherLinearLayout(listCascas2,scrollViewCascas,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -652,27 +610,26 @@ public class Produtos extends AppCompatActivity {
     }
 
     private void atualizarOvoDeColher(){
-        ImageView imageViewLayout=(ImageView) findViewById(R.id.imagemBoloProdutos);
         ImageView gramas350=(ImageView) findViewById(R.id.gramas350);
         ImageView gramas500=(ImageView) findViewById(R.id.gramas500);
         ConstraintLayout ct= findViewById(R.id.constraintLayout);
         ct.removeView(findViewById(R.id.gramas250));
         ct.removeView(findViewById(R.id.gramas700));
-        TextView tituloLayout=(TextView)findViewById(R.id.tituloBoloProdutos);
+        ResourcesSupport resourcesSupport=new ResourcesSupport(getResources());
         adicionarAoCarrinho=(Button)findViewById(R.id.botaoAdicionarAoCarrinho);
-        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+        BuilderProduct builder=new BuilderProduct((ImageView) findViewById(R.id.imagemBoloProdutos),(TextView)findViewById(R.id.tituloBoloProdutos)
+                ,(TextView)findViewById(R.id.precoProdutos),adicionarAoCarrinho,resourcesSupport,"Ovo De Colher"
+                ,null);
+        builder.show();
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         params.setMarginEnd(4);
         LinearLayout scrollViewCascas=(LinearLayout) findViewById(R.id.LinearLayoutCascas);
         LinearLayout scrollViewSabores=(LinearLayout) findViewById(R.id.linearLayoutSabores);
-        ResourcesSupport resources=new ResourcesSupport(getResources());
-        imageViewLayout.setImageDrawable(resources.retornarDrawablePorTitulo("Ovo De Colher"));
-        tituloLayout.setText("Ovo De Colher");
-        adicionarAoCarrinho.setText("ADICIONAR AO CARRINHO");
-        List<String> listCascas2=resources.retornarListaDeSaboresPorTitulo("Cascas Comuns");
-        List<String> listCascas=resources.retornarListaDeSaboresPorTitulo("Cascas Especiais");
-        List<String> listSabores=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher1");
-        List<String> listSabores2=resources.retornarListaDeSaboresPorTitulo("Ovo De Colher2");
+        List<String> listCascas2=resourcesSupport.retornarListaDeSaboresPorTitulo("Cascas Comuns");
+        List<String> listCascas=resourcesSupport.retornarListaDeSaboresPorTitulo("Cascas Especiais");
+        List<String> listSabores=resourcesSupport.retornarListaDeSaboresPorTitulo("Ovo De Colher1");
+        List<String> listSabores2=resourcesSupport.retornarListaDeSaboresPorTitulo("Ovo De Colher2");
         preencherLinearLayout(listCascas2,scrollViewCascas,new View.OnClickListener() {
             @Override
             public void onClick(View v) {
