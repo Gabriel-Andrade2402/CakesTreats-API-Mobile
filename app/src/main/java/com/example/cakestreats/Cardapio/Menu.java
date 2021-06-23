@@ -41,7 +41,7 @@ public class Menu {
         }
         layoutInflater.inflate(R.layout.fragment_cardapio_bolos,frame);
         if(view!=null){
-            ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",20.0f);
+            ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
             objectAnimator.setDuration(500);
             objectAnimator.start();
         }
@@ -53,7 +53,7 @@ public class Menu {
         }
         layoutInflater.inflate(R.layout.fragment_cardapio_doces,frame);
         fragmentAtivo="doces";
-        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",247.0f);
+        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
         objectAnimator.setDuration(500);
         objectAnimator.start();
     }
@@ -63,7 +63,7 @@ public class Menu {
         }
         layoutInflater.inflate(R.layout.fragment_cardapio_pascoa,frame);
         fragmentAtivo="pascoa";
-        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",474.0f);
+        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(spinner,"translationX",view.getX());
         objectAnimator.setDuration(500);
         objectAnimator.start();
     }

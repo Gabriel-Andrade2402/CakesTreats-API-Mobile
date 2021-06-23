@@ -285,6 +285,7 @@
                     android:layout_width="335dp"
                     android:layout_height="47dp"
                     android:text="Cadastrar-se"
+                    android:onClick="cadastrar"
                     app:layout_constraintBottom_toTopOf="@+id/space3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"

@@ -18,8 +18,23 @@
         app:layout_constraintVertical_bias="0.061"
         app:srcCompat="@drawable/logomarca" />
 
+    <TextView
+        android:id="@+id/txWarningEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="4pt"
+        android:paddingStart="15dp"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="1.0" />
+
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/editTextEmail"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -27,17 +42,18 @@
         android:inputType="textEmailAddress"
         android:padding="5dp"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/senha"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSenha"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintVertical_bias="0.566" />
 
     <EditText
-        android:id="@+id/senha"
+        android:id="@+id/editTextSenha"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="104dp"
         android:ems="10"
         android:hint="Digite sua senha"
         android:inputType="textPassword"
@@ -45,15 +61,30 @@
         android:paddingStart="10dp"
         app:layout_constraintBottom_toTopOf="@+id/botaoLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txWarningSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="4pt"
+        android:paddingStart="15dp"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSenha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/botaoLogin"
         android:layout_width="335dp"
         android:layout_height="50dp"
-        android:text="Logar"
         android:onClick="logar"
+        android:text="Logar"
         app:layout_constraintBottom_toTopOf="@+id/textViewCadastrarSe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,23 +97,24 @@
         android:text="Esqueceu a senha?"
         app:layout_constraintBottom_toTopOf="@+id/botaoLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senha"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSenha"
+        app:layout_constraintVertical_bias="0.802" />
 
     <TextView
         android:id="@+id/textViewAjuda"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:paddingStart="15dp"
         android:text="Ajuda?"
         app:layout_constraintBottom_toTopOf="@+id/botaoLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senha"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSenha"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Space
         android:id="@+id/space2"
@@ -98,9 +130,9 @@
         android:id="@+id/textViewCadastrarSe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar-se"
         android:onClick="iniciarCadastro"
         android:padding="15dp"
+        android:text="Cadastrar-se"
         android:textSize="8pt"
         app:layout_constraintBottom_toTopOf="@+id/space2"
         app:layout_constraintEnd_toEndOf="parent"

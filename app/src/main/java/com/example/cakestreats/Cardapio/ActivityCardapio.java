@@ -95,4 +95,8 @@ public class ActivityCardapio extends AppCompatActivity {
         }
 
     }
+
+    public void irParaCarrinho(View view) {
+
+    }
 }
