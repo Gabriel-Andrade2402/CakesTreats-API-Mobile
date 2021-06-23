@@ -11,6 +11,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.cakestreats.Cardapio.ActivityCardapio;
 import com.example.cakestreats.Cardapio.Menu;
+import com.example.cakestreats.Connection.ServiceRequests;
 import com.example.cakestreats.Modelos.User;
 import com.example.cakestreats.auxiliares.ManipularTextos;
 import com.example.cakestreats.auxiliares.ResourcesSupport;
@@ -73,9 +75,13 @@ public class MainActivity extends AppCompatActivity {
         getLayoutInflater().inflate(R.layout.login,ct);
     }
     public void logar(View view) {
-        if(iniciarUsuarioLogin()){
-        Intent intent=new Intent(this, ActivityCardapio.class);
-        startActivity(intent);}
+        User user=iniciarUsuarioLogin();
+        if(user!=null){
+            ServiceRequests service=ServiceRequests.getInstace(getApplicationContext());
+            service.fazerLogin(user);
+            Intent intent=new Intent(this, ActivityCardapio.class);
+            startActivity(intent);
+        }
     }
 
     public void cadastrar(View view){
@@ -94,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public boolean iniciarUsuarioLogin(){
+    public User iniciarUsuarioLogin(){
         if(checarPreenchimentoLogin()){
             {
                 int i=0;
@@ -105,14 +111,13 @@ public class MainActivity extends AppCompatActivity {
                     i+=1;
                 }
                 if(i>0){
-                    return false;
+                    return null;
                 }
             }
-            User.getInstace(null,etEmail.getText().toString(),
+            return User.getInstace(null,etEmail.getText().toString(),
                     null,null,etSenha.getText().toString());
-            return true;
         }
-        return false;
+        return null;
     }
     public boolean iniciarUsuarioCadastro(){
         if(checarPreenchimentoCadastro()){
@@ -187,27 +192,27 @@ public class MainActivity extends AppCompatActivity {
         etSenha=findViewById(R.id.editTextSenha);
         etSenha2=findViewById(R.id.editTextSenha2);
         etTelefone=findViewById(R.id.editTextTelefone);
-        if(etNome.getText().toString()==null){
+        if(etNome.length()==0){
             txWarningNome.setText("Preencha o campo nome");
             return false;
         }
-        if(etEmail.getText().toString()==null){
+        if(etNome.length()==0){
             txWarningEmail.setText("Preencha o campo email");
             return false;
         }
-        if(etEmail2.getText().toString()==null){
+        if(etEmail2.length()==0){
             txWarningEmail2.setText("Preencha o campo");
             return false;
         }
-        if(etSenha.getText().toString()==null){
+        if(etSenha.length()==0){
             txWarningSenha.setText("Preencha o campo senha");
             return false;
         }
-        if(etSenha2.getText().toString()==null){
+        if(etSenha2.length()==0){
             txWarningSenha2.setText("Preencha o campo");
             return false;
         }
-        if(etTelefone.getText().toString()==null){
+        if(etTelefone.length()==0){
             txWarningTelefone.setText("Preencha o campo telefone");
             return false;
         }
