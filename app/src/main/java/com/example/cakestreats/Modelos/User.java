@@ -8,20 +8,12 @@ public class User {
     private String telefone;
     private List<Pedido> listPedidos;
     private String senha;
-    private static User instace;
-    private User(){}
-    private User(String nome, String email, String telefone, List<Pedido> listPedidos,String senha) {
+    public User(String nome, String email, String telefone, List<Pedido> listPedidos,String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.listPedidos = listPedidos;
         this.senha=senha;
-    }
-    public static User getInstace(String nome, String email, String telefone, List<Pedido> listPedidos,String senha){
-        if(instace==null){
-            instace=new User(nome,email,telefone,listPedidos,senha);
-        }
-        return instace;
     }
     public String getNome() {
         return nome;
@@ -62,7 +54,5 @@ public class User {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public void sairConta(){
-        instace=null;
-    }
+
 }

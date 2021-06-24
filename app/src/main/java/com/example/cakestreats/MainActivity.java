@@ -10,27 +10,31 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.cakestreats.Cardapio.ActivityCardapio;
-import com.example.cakestreats.Cardapio.Menu;
-import com.example.cakestreats.Connection.ServiceRequests;
 import com.example.cakestreats.Modelos.User;
+import com.example.cakestreats.Profile.Profile;
 import com.example.cakestreats.auxiliares.ManipularTextos;
-import com.example.cakestreats.auxiliares.ResourcesSupport;
-import com.example.cakestreats.dialogos.Produtos;
+
+import org.json.JSONObject;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout ct;
+    private Integer controlLoginRequest=null;
     private TextView txWarningEmail;
     private TextView txWarningEmail2;
     private TextView txWarningNome;
@@ -74,22 +78,56 @@ public class MainActivity extends AppCompatActivity {
         ct.removeAllViews();
         getLayoutInflater().inflate(R.layout.login,ct);
     }
-    public void logar(View view) {
-        User user=iniciarUsuarioLogin();
+    public void logar(View view){
+        User user = iniciarUsuarioLogin();
+        if(controlLoginRequest==null) {
+            Profile prof = Profile.getInstance(null);
+            prof.exitProfile();
+        }
         if(user!=null){
-            ServiceRequests service=ServiceRequests.getInstace(getApplicationContext());
-            service.fazerLogin(user);
-            Intent intent=new Intent(this, ActivityCardapio.class);
-            startActivity(intent);
+            fazerLogin(user,(Button)view);
         }
     }
+    public void fazerLogin(User user,Button view) {
+        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());;
+        try {
+            String url="http://45.93.136.212:8080/usuarios/logar";
+            JSONObject json=new JSONObject();
+            json.put("email",user.getEmail());
+            json.put("senha",user.getSenha());
+            JsonObjectRequest jsonRequest=new JsonObjectRequest(Request.Method.POST, url, json, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    if(response!=null) {
+                        Profile.getInstance(user);
+                        view.setText("Logando...");
+                        iniciarActivityCardapio();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                 txWarningEmail.setText("Ocorreu um erro");
+                }
+            });
+            requestQueue.add(jsonRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            txWarningEmail.setText("Ocorreu um erro");
+        }
 
-    public void cadastrar(View view){
-        if(iniciarUsuarioCadastro()){
-            Intent intent=new Intent(this, ActivityCardapio.class);
-            startActivity(intent);}
     }
 
+    private void iniciarActivityCardapio() {
+        Intent intent=new Intent(this, ActivityCardapio.class);
+        startActivity(intent);
+    }
+
+    public void cadastrar(View view) {
+        if (iniciarUsuarioCadastro() != null) {
+            iniciarActivityCardapio();
+        }
+    }
     public void botaoVoltar(View view) {
         ct.removeAllViews();
         getLayoutInflater().inflate(R.layout.login,ct);
@@ -114,12 +152,12 @@ public class MainActivity extends AppCompatActivity {
                     return null;
                 }
             }
-            return User.getInstace(null,etEmail.getText().toString(),
+            return new User(null,etEmail.getText().toString(),
                     null,null,etSenha.getText().toString());
         }
         return null;
     }
-    public boolean iniciarUsuarioCadastro(){
+    public User iniciarUsuarioCadastro(){
         if(checarPreenchimentoCadastro()){
             if(checarIgualdade()){
                 {
@@ -131,15 +169,14 @@ public class MainActivity extends AppCompatActivity {
                         i+=1;
                     }
                     if(i>0){
-                        return false;
+                        return null;
                     }
                 }
-                User.getInstace(etNome.getText().toString(),etEmail.getText().toString(),
+                return  new User(etNome.getText().toString(),etEmail.getText().toString(),
                         etTelefone.getText().toString(),null,etSenha.getText().toString());
-                return true;
             }
         }
-        return false;
+        return null;
     }
 
 
