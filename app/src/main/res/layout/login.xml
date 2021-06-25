@@ -130,7 +130,7 @@
         android:id="@+id/textViewCadastrarSe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="iniciarCadastro"
+        android:onClick="iniciarViewCadastro"
         android:padding="15dp"
         android:text="Cadastrar-se"
         android:textSize="8pt"

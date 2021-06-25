@@ -26,6 +26,7 @@ import com.example.cakestreats.Cardapio.ActivityCardapio;
 import com.example.cakestreats.Modelos.User;
 import com.example.cakestreats.Profile.Profile;
 import com.example.cakestreats.auxiliares.ManipularTextos;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         ct= (ConstraintLayout)findViewById(R.id.mainLayoutIntroduction);
         animator();
     }
+    //Animação da introdução do app
     public void animator(){
         ObjectAnimator objImagem= ObjectAnimator.ofFloat(findViewById(R.id.logomarcaIntroduction),"alpha",1f);
         objImagem.setDuration(3000);
@@ -73,21 +75,29 @@ public class MainActivity extends AppCompatActivity {
         anm.play(objImagem).with(objImagem2);
         anm.start();
     }
-
+    //troca o layout da introdução para login
     public void introduction(){
         ct.removeAllViews();
         getLayoutInflater().inflate(R.layout.login,ct);
     }
+    //botão logar e botão cadastrar
     public void logar(View view){
         User user = iniciarUsuarioLogin();
-        if(controlLoginRequest==null) {
-            Profile prof = Profile.getInstance(null);
-            prof.exitProfile();
-        }
+        Profile prof = Profile.getInstance(null);
+        prof.exitProfile();
         if(user!=null){
             fazerLogin(user,(Button)view);
         }
     }
+    public void cadastrar(View view) {
+        User user=iniciarUsuarioCadastro();
+        Profile prof = Profile.getInstance(null);
+        prof.exitProfile();
+        if (user != null) {
+            fazerCadastro(user,(Button)view);
+        }
+    }
+    //Métodos que fazem a conexão e respondem
     public void fazerLogin(User user,Button view) {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());;
         try {
@@ -99,9 +109,13 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     if(response!=null) {
-                        Profile.getInstance(user);
+                        Gson gson=new Gson();
+                        User userResponse=gson.fromJson(response.toString(),User.class);
+                        Profile.getInstance(userResponse);
                         view.setText("Logando...");
                         iniciarActivityCardapio();
+                    }else {
+                        txWarningEmail.setText("Ocorreu um erro");
                     }
                 }
             }, new Response.ErrorListener() {
@@ -117,27 +131,53 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    public void fazerCadastro(User user,Button view){
+        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());;
+        try {
+            String url="http://45.93.136.212:8080/usuarios/logar";
+            JSONObject json=new JSONObject();
+            json.put("email",user.getEmail());
+            json.put("senha",user.getSenha());
+            JsonObjectRequest jsonRequest=new JsonObjectRequest(Request.Method.POST, url, json, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    if(response!=null) {
+                        Gson gson=new Gson();
+                        User userResponse=gson.fromJson(response.toString(),User.class);
+                        Profile.getInstance(userResponse);
+                        view.setText("Cadastrando...");
+                        iniciarActivityCardapio();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    txWarningNome.setText("Ocorreu um erro");
+                }
+            });
+            requestQueue.add(jsonRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            txWarningNome.setText("Ocorreu um erro");
+        }
+    }
+    //Metodo que inicia cardapio
     private void iniciarActivityCardapio() {
         Intent intent=new Intent(this, ActivityCardapio.class);
         startActivity(intent);
     }
-
-    public void cadastrar(View view) {
-        if (iniciarUsuarioCadastro() != null) {
-            iniciarActivityCardapio();
-        }
-    }
+    //Botao voltar
     public void botaoVoltar(View view) {
         ct.removeAllViews();
         getLayoutInflater().inflate(R.layout.login,ct);
     }
-    public void iniciarCadastro(View view) {
+    //inicia o layout de cadastro
+    public void iniciarViewCadastro(View view) {
         ct.removeAllViews();
         getLayoutInflater().inflate(R.layout.cadastrar,ct);
     }
 
-
+    //Cria um usuario login com dados do login ou dados do cadastro
     public User iniciarUsuarioLogin(){
         if(checarPreenchimentoLogin()){
             {
@@ -178,10 +218,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
-
-
-
-
+    //checa preenchimentos e formatos de dados que estão entrando
     public boolean checarFormatoEmail(){
         txWarningEmail.setText("");
         if(!ManipularTextos.cfEmail(etEmail.getText().toString())){
