@@ -71,7 +71,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/imagemPascoaOvoSimples"
                     app:layout_constraintStart_toStartOf="@+id/imagemPascoaOvoSimples"
                     app:layout_constraintTop_toTopOf="@+id/imagemPascoaOvoSimples"
-                    app:srcCompat="@drawable/fundopreto" />
+                    app:srcCompat="@drawable/background_preto_equilatero" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!--Aqui inicia o Layout dos Ovos Trufados-->
@@ -121,7 +121,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/imagemPascoaOvoTrufado"
                     app:layout_constraintTop_toTopOf="@+id/imagemPascoaOvoTrufado"
-                    app:srcCompat="@drawable/fundopreto" />
+                    app:srcCompat="@drawable/background_preto_equilatero" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!--Aqui inicia o Layout dos Ovos de colher-->
@@ -171,7 +171,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/imagemPascoaOvoDeColher"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/fundopreto" />
+                    app:srcCompat="@drawable/background_preto_equilatero" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

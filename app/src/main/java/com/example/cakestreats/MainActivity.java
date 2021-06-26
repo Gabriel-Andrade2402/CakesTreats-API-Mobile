@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                         User userResponse=gson.fromJson(response.toString(),User.class);
                         Profile.getInstance(userResponse);
                         view.setText("Logando...");
+                        Logger.getLogger(MainActivity.class.getName()).log(Level.WARNING,userResponse.toString());
                         iniciarActivityCardapio();
                     }else {
                         txWarningEmail.setText("Ocorreu um erro");
@@ -134,10 +135,12 @@ public class MainActivity extends AppCompatActivity {
     public void fazerCadastro(User user,Button view){
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());;
         try {
-            String url="http://45.93.136.212:8080/usuarios/logar";
+            String url="http://45.93.136.212:8080/usuarios/cadastrar";
             JSONObject json=new JSONObject();
             json.put("email",user.getEmail());
             json.put("senha",user.getSenha());
+            json.put("nome",user.getNome());
+            json.put("telefone",user.getTelefone());
             JsonObjectRequest jsonRequest=new JsonObjectRequest(Request.Method.POST, url, json, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -146,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         User userResponse=gson.fromJson(response.toString(),User.class);
                         Profile.getInstance(userResponse);
                         view.setText("Cadastrando...");
+                        Logger.getLogger(MainActivity.class.getName()).log(Level.WARNING,userResponse.toString());
                         iniciarActivityCardapio();
                     }
                 }

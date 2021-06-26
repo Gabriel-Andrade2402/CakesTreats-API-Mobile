@@ -1,39 +1,62 @@
 package com.example.cakestreats.Modelos;
 
+import com.example.cakestreats.Enums.STATUS;
+
 public class Pedido {
-    private String nome;
-    private String preco;
-    private String sabor;
+    private STATUS status;
+    private User usuario;
+    private String dataPedida;
+    private String dataEntregue;
+    private Produtos produto;
 
-    public Pedido(){}
-
-    public Pedido(String nome, String preco, String sabor) {
-        this.nome = nome;
-        this.preco = preco;
-        this.sabor = sabor;
+    public Pedido() {
     }
 
-    public String getNome() {
-        return nome;
+    public Pedido(STATUS status, User usuario, String dataPedida, String dataEntregue, Produtos produto) {
+        this.status = status;
+        this.usuario = usuario;
+        this.dataPedida = dataPedida;
+        this.dataEntregue = dataEntregue;
+        this.produto = produto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public STATUS getStatus() {
+        return status;
     }
 
-    public String getPreco() {
-        return preco;
+    public void setStatus(STATUS status) {
+        this.status = status;
     }
 
-    public void setPreco(String preco) {
-        this.preco = preco;
+    public User getUsuario() {
+        return usuario;
     }
 
-    public String getSabor() {
-        return sabor;
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
     }
 
-    public void setSabor(String sabor) {
-        this.sabor = sabor;
+    public String getDataPedida() {
+        return dataPedida;
+    }
+
+    public void setDataPedida(String dataPedida) {
+        this.dataPedida = dataPedida;
+    }
+
+    public String getDataEntregue() {
+        return dataEntregue;
+    }
+
+    public void setDataEntregue(String dataEntregue) {
+        this.dataEntregue = dataEntregue;
+    }
+
+    public Produtos getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produtos produto) {
+        this.produto = produto;
     }
 }

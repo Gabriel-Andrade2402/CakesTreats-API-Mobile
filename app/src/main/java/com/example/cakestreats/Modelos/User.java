@@ -55,4 +55,14 @@ public class User {
         this.senha = senha;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", listPedidos=" + listPedidos +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
 }

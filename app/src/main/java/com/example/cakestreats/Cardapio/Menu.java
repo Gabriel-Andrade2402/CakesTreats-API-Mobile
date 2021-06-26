@@ -35,7 +35,7 @@ public class Menu {
         bouncer.play(animacaoI).before(animacaoII);
         bouncer.start();
     }
-    public void clickBolos(View view) {
+    public void clickBolos(View view,float value) {
         if(fragmentAtivo!=null){
             frame.removeAllViews();
         }
@@ -47,7 +47,7 @@ public class Menu {
         }
         fragmentAtivo="bolos";
     }
-    public void clickDoces(View view){
+    public void clickDoces(View view,float value){
         if(fragmentAtivo!=null){
             frame.removeAllViews();
         }
@@ -57,7 +57,7 @@ public class Menu {
         objectAnimator.setDuration(500);
         objectAnimator.start();
     }
-    public void clickPascoa(View view){
+    public void clickPascoa(View view,float value){
         if(fragmentAtivo!=null){
             frame.removeAllViews();
         }

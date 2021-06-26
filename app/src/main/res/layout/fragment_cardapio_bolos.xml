@@ -32,7 +32,7 @@
                 android:layout_height="300dp"
                 android:background="@drawable/rectangle_background"
                 android:elevation="4dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:onClick="animationClick">
 
                 <TextView
@@ -115,7 +115,7 @@
                 android:background="@drawable/rectangle_background"
                 android:layout_gravity="center"
                 android:onClick="animationClick"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:elevation="4dp">
@@ -129,9 +129,9 @@
                     android:text="Bolos tipo 2"
                     android:textColor="@color/black"
                     android:textSize="10pt"
+                    app:layout_constraintHorizontal_bias="0.101"
                     app:layout_constraintBottom_toTopOf="@+id/descricaoBolo2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
                 <ImageView
                     android:id="@+id/imageView5"
@@ -150,10 +150,10 @@
                     android:layout_width="239dp"
                     android:layout_height="35dp"
                     android:layout_marginBottom="4dp"
+                    app:layout_constraintHorizontal_bias="0.246"
                     android:text="Bolos nos sabores Ninho com Morango/Abacaxi...."
                     app:layout_constraintBottom_toTopOf="@+id/precoBolo2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
@@ -197,7 +197,7 @@
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/rectangle_background"
                 android:onClick="animationClick"
                 android:elevation="4dp">
@@ -248,7 +248,7 @@
                     android:text="Bolos nos sabores, Fubá com goiabada, Laranja,Milho,Beijinho,Brigadeiro,Limão...."
                     app:layout_constraintBottom_toTopOf="@+id/precoBolo3"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.246"
                     app:layout_constraintStart_toStartOf="parent"
                     />
 
@@ -282,7 +282,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle_background"
                 android:onClick="animationClick"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:elevation="4dp">
@@ -331,12 +331,12 @@
                     android:id="@+id/descricaoBolo4"
                     android:layout_width="235dp"
                     android:layout_height="40dp"
+                    android:layout_marginBottom="4dp"
                     android:text="Bolos nos sabores Ninho com nutella,Sensação,Ferrero Rocher....."
                     app:layout_constraintBottom_toTopOf="@+id/precoBolo4"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
+                    app:layout_constraintHorizontal_bias="0.246"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/precoBolo4"

@@ -8,7 +8,6 @@ import java.util.List;
 public class Profile {
     private static Profile instance;
     private User user;
-    private List<Pedido> carrinho;
     private Profile(User user){
         this.user=user;
     }
